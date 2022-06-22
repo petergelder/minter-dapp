@@ -163,18 +163,2792 @@
       </div>
     </section>
 
-    <section class="container2">
-        <p>View it in the collection:</p>
-        <a
-          id="mintedLinkBtn"
-          href="https://testnets.opensea.io/collection/coo-and-the-gang"
-          target="_blank"
-          rel="noopener noreferrer"
+    <section
+  data-test="page-section"
+  
+  data-section-theme="light"
+  class='page-section
+    
+      layout-engine-section
+    
+    background-width--full-bleed
+    
+      section-height--small
+    
+    
+      content-width--medium
+    
+    horizontal-alignment--center
+    vertical-alignment--middle
+    
+       has-background
+    
+    
+    light'
+  
+  data-section-id="62ae20ca658b56087bdba1cf"
+  
+  data-controller="SectionWrapperController"
+  data-current-styles="{
+  &quot;backgroundImage&quot;: {
+    &quot;id&quot;: &quot;62ae20ca658b56087bdba1cd&quot;,
+    &quot;recordType&quot;: 2,
+    &quot;addedOn&quot;: 1655577941748,
+    &quot;updatedOn&quot;: 1655577941774,
+    &quot;starred&quot;: false,
+    &quot;passthrough&quot;: false,
+    &quot;workflowState&quot;: 1,
+    &quot;publishOn&quot;: 1655577941748,
+    &quot;authorId&quot;: &quot;586cefe520099ee6dd9cd914&quot;,
+    &quot;systemDataId&quot;: &quot;7f2bbc01-d695-4fae-9250-14a28a2867b1&quot;,
+    &quot;systemDataVariants&quot;: &quot;4000x8000,100w,300w,500w,750w,1000w,1500w,2500w&quot;,
+    &quot;systemDataSourceType&quot;: &quot;JPG&quot;,
+    &quot;filename&quot;: &quot;CloudBG.jpg&quot;,
+    &quot;mediaFocalPoint&quot;: {
+      &quot;x&quot;: 0.5,
+      &quot;y&quot;: 0.5,
+      &quot;source&quot;: 3
+    },
+    &quot;colorData&quot;: {
+      &quot;topLeftAverage&quot;: &quot;eafffa&quot;,
+      &quot;topRightAverage&quot;: &quot;effef9&quot;,
+      &quot;bottomLeftAverage&quot;: &quot;eafffa&quot;,
+      &quot;bottomRightAverage&quot;: &quot;ecfef9&quot;,
+      &quot;centerAverage&quot;: &quot;eafffa&quot;,
+      &quot;suggestedBgColor&quot;: &quot;ebfef9&quot;
+    },
+    &quot;urlId&quot;: &quot;w4bks43ex3pw3j5x46rlnd7kkoy2vm-gcran&quot;,
+    &quot;title&quot;: &quot;&quot;,
+    &quot;body&quot;: null,
+    &quot;likeCount&quot;: 0,
+    &quot;commentCount&quot;: 0,
+    &quot;publicCommentCount&quot;: 0,
+    &quot;commentState&quot;: 2,
+    &quot;unsaved&quot;: false,
+    &quot;author&quot;: {
+      &quot;id&quot;: &quot;586cefe520099ee6dd9cd914&quot;,
+      &quot;displayName&quot;: &quot;Matthew Nguyen&quot;,
+      &quot;firstName&quot;: &quot;Matthew&quot;,
+      &quot;lastName&quot;: &quot;Nguyen&quot;
+    },
+    &quot;assetUrl&quot;: &quot;https://images.squarespace-cdn.com/content/v1/62ae0278f951920a263d4244/7f2bbc01-d695-4fae-9250-14a28a2867b1/CloudBG.jpg&quot;,
+    &quot;contentType&quot;: &quot;image/jpeg&quot;,
+    &quot;items&quot;: [ ],
+    &quot;pushedServices&quot;: { },
+    &quot;pendingPushedServices&quot;: { },
+    &quot;recordTypeLabel&quot;: &quot;image&quot;,
+    &quot;originalSize&quot;: &quot;4000x8000&quot;
+  },
+  &quot;imageOverlayOpacity&quot;: 0.0,
+  &quot;backgroundWidth&quot;: &quot;background-width--full-bleed&quot;,
+  &quot;sectionHeight&quot;: &quot;section-height--small&quot;,
+  &quot;customSectionHeight&quot;: 10,
+  &quot;horizontalAlignment&quot;: &quot;horizontal-alignment--center&quot;,
+  &quot;verticalAlignment&quot;: &quot;vertical-alignment--middle&quot;,
+  &quot;contentWidth&quot;: &quot;content-width--medium&quot;,
+  &quot;customContentWidth&quot;: 90,
+  &quot;sectionTheme&quot;: &quot;light&quot;,
+  &quot;sectionAnimation&quot;: &quot;none&quot;,
+  &quot;backgroundMode&quot;: &quot;image&quot;,
+  &quot;imageEffect&quot;: &quot;none&quot;
+}"
+  data-animation="none"
+   
+  
+    
+  
+  
+>
+  <div class="section-background">
+  
+    
+      
+      
+        
+            
+
+
+  
+<script>
+  "use strict";
+
+  var positionImage = function positionImage(imageEl) {
+    var imageDimensions = imageEl.dataset.imageDimensions.split('x');
+    var originalWidth = imageDimensions[0];
+    var originalHeight = imageDimensions[1];
+    var focalPoint = imageEl.dataset.imageFocalPoint.split(',');
+    var focalPointX = focalPoint[0];
+    var focalPointY = focalPoint[1];
+    var parentNode = imageEl.parentNode;
+
+    var scale = function () {
+      var imageRatio = originalWidth / originalHeight;
+      var parentClientSize = {
+        height: parentNode.clientHeight,
+        width: parentNode.clientWidth
+      };
+      var parentRatio = parentClientSize.width / parentClientSize.height;
+
+      if (imageRatio > parentRatio) {
+        return parentClientSize.height / originalHeight;
+      }
+
+      return parentClientSize.width / originalWidth;
+    }();
+
+    var getRelativeOffset = function getRelativeOffset() {
+      var targetWidth = Math.ceil(originalWidth * scale);
+      var targetHeight = Math.ceil(originalHeight * scale);
+      var parentDimensionWidth = parentNode.offsetWidth;
+      var parentDimensionHeight = parentNode.offsetHeight;
+      var overflowWidth = targetWidth - parentDimensionWidth;
+      var overflowHeight = targetHeight - parentDimensionHeight;
+      var valueX;
+
+      if (overflowWidth === 0) {
+        valueX = focalPointX;
+      } else {
+        valueX = Math.max(Math.min(targetWidth * focalPointX - parentDimensionWidth * 0.5, overflowWidth), 0) / overflowWidth;
+      }
+
+      var valueY;
+
+      if (overflowHeight === 0) {
+        valueY = focalPointY;
+      } else {
+        valueY = Math.max(Math.min(targetHeight * focalPointY - parentDimensionHeight * 0.5, overflowHeight), 0) / overflowHeight;
+      }
+
+      return {
+        valueX: valueX,
+        valueY: valueY
+      };
+    };
+
+    var relativeOffset = getRelativeOffset();
+    var valueX = relativeOffset.valueX;
+    var valueY = relativeOffset.valueY;
+    imageEl.style.objectPosition = "".concat(valueX * 100, "% ").concat(valueY * 100, "%");
+  };
+</script>
+
+
+
+  
+      
+  <img alt=""
+    
+    src="https://images.squarespace-cdn.com/content/v1/62ae0278f951920a263d4244/7f2bbc01-d695-4fae-9250-14a28a2867b1/CloudBG.jpg" data-image="https://images.squarespace-cdn.com/content/v1/62ae0278f951920a263d4244/7f2bbc01-d695-4fae-9250-14a28a2867b1/CloudBG.jpg" data-image-dimensions="4000x8000" data-image-focal-point="0.5,0.5" alt="CloudBG.jpg" 
+    data-load="false"
+    
+       srcset="https://images.squarespace-cdn.com/content/v1/62ae0278f951920a263d4244/7f2bbc01-d695-4fae-9250-14a28a2867b1/CloudBG.jpg?format=100w 100w,https://images.squarespace-cdn.com/content/v1/62ae0278f951920a263d4244/7f2bbc01-d695-4fae-9250-14a28a2867b1/CloudBG.jpg?format=300w 300w,https://images.squarespace-cdn.com/content/v1/62ae0278f951920a263d4244/7f2bbc01-d695-4fae-9250-14a28a2867b1/CloudBG.jpg?format=500w 500w,https://images.squarespace-cdn.com/content/v1/62ae0278f951920a263d4244/7f2bbc01-d695-4fae-9250-14a28a2867b1/CloudBG.jpg?format=750w 750w,https://images.squarespace-cdn.com/content/v1/62ae0278f951920a263d4244/7f2bbc01-d695-4fae-9250-14a28a2867b1/CloudBG.jpg?format=1000w 1000w,https://images.squarespace-cdn.com/content/v1/62ae0278f951920a263d4244/7f2bbc01-d695-4fae-9250-14a28a2867b1/CloudBG.jpg?format=1500w 1500w,https://images.squarespace-cdn.com/content/v1/62ae0278f951920a263d4244/7f2bbc01-d695-4fae-9250-14a28a2867b1/CloudBG.jpg?format=2500w 2500w"
+      
+      sizes="(max-width: 799px) 200vw, 100vw" 
+      onLoad="positionImage(this); this.classList.add('loaded');"
+      loading="lazy"
+    
+  />
+  
+
+          
+      
+      <div class="section-background-overlay" style="opacity: 0;"></div>
+    
+  
+  </div>
+  <div
+    class="content-wrapper"
+    style='
+      
+        
+      
+    '
+  >
+    <div
+      class="content"
+      
+    >
+      
+      
+      
+      
+      <div class="sqs-layout sqs-grid-12 columns-12" data-type="page-section" id="page-section-62ae20ca658b56087bdba1cf"><div class="row sqs-row"><div class="col sqs-col-12 span-12"><div class="row sqs-row"><div class="col sqs-col-2 span-2"><div class="sqs-block spacer-block sqs-block-spacer sized vsize-1" data-block-type="21" id="block-75b0e130deffb0364301"><div class="sqs-block-content">&nbsp;</div></div></div><div class="col sqs-col-8 span-8"><div class="sqs-block image-block sqs-block-image" data-block-type="5" id="block-b97528f8247dc102a70b"><div class="sqs-block-content">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+    
+  
+    <div
+        class="
+          image-block-outer-wrapper
+          layout-caption-below
+          design-layout-inline
+          combination-animation-site-default
+          individual-animation-site-default
+          individual-text-animation-site-default
+        "
+        data-test="image-block-inline-outer-wrapper"
+    >
+
+      
+
+      
+        <figure
+            class="
+              sqs-block-image-figure
+              intrinsic
+            "
+            style="max-width:1236px;"
         >
-          <button class="hero-btn btn">View Collection</button>
-        </a>
+          
+        
+        
+
+        
+          
+            
+          <div
+              
+              
+              class="image-block-wrapper"
+              data-animation-role="image"
+              
+  
+
+          >
+            <div class="sqs-image-shape-container-element
+              
+          
+        
+              has-aspect-ratio
+            " style="
+                position: relative;
+                
+                  padding-bottom:67.9611587524414%;
+                
+                overflow: hidden;
+              "
+              >
+              <noscript><img src="https://images.squarespace-cdn.com/content/v1/62ae0278f951920a263d4244/86078f4e-91f6-4803-b492-5142361ba130/CooandthegangLogo.png" alt="Coo and the Gang©" /></noscript><img class="thumb-image" src="https://images.squarespace-cdn.com/content/v1/62ae0278f951920a263d4244/86078f4e-91f6-4803-b492-5142361ba130/CooandthegangLogo.png" data-image="https://images.squarespace-cdn.com/content/v1/62ae0278f951920a263d4244/86078f4e-91f6-4803-b492-5142361ba130/CooandthegangLogo.png" data-image-dimensions="1236x840" data-image-focal-point="0.5,0.5" alt="Coo and the Gang©" data-load="false" data-image-id="62ae3a7e31b0d04894c91175" data-type="image" />
+            </div>
+          </div>
+        
+          
+        
+
+        
+      
+        </figure>
+      
+
+    </div>
+  
+
+
+  
+
+
+</div></div></div><div class="col sqs-col-2 span-2"><div class="sqs-block spacer-block sqs-block-spacer sized vsize-1" data-block-type="21" id="block-887388c02bc6bd4ba71d"><div class="sqs-block-content">&nbsp;</div></div></div></div><div class="sqs-block marquee-block sqs-block-marquee" data-block-type="70" id="block-5421546a15eed2e37945"><div class="sqs-block-content">
+
+
+
+<div class="Marquee" style="font-size: 2.3rem; --marquee-font-size-value: 2.3;">
+  <script class="Marquee-props" type="application/json">{
+  "marqueeItems": [ {
+    "text": "🐦"
+  }, {
+    "text": "NFT COLLECTIBLES"
+  } ],
+  "linkTo": "",
+  "waveFrequency": 4,
+  "waveIntensity": 0,
+  "animationDirection": "left",
+  "animationSpeed": 2.0,
+  "textStyle": "heading-1",
+  "textSize": {
+    "unit": "rem",
+    "value": 2.3
+  },
+  "itemSpacing": {
+    "unit": "em",
+    "value": 0.5
+  },
+  "blockId": "5421546a15eed2e37945",
+  "containerStyles": {
+    "backgroundEnabled": false,
+    "borderRadii": {
+      "topLeft": {
+        "unit": "px",
+        "value": 0.0
+      },
+      "topRight": {
+        "unit": "px",
+        "value": 0.0
+      },
+      "bottomLeft": {
+        "unit": "px",
+        "value": 0.0
+      },
+      "bottomRight": {
+        "unit": "px",
+        "value": 0.0
+      }
+    },
+    "padding": {
+      "top": {
+        "unit": "%",
+        "value": 3.0
+      },
+      "right": {
+        "unit": "%",
+        "value": 0.0
+      },
+      "bottom": {
+        "unit": "%",
+        "value": 3.0
+      },
+      "left": {
+        "unit": "%",
+        "value": 0.0
+      }
+    },
+    "stretchedToFill": false
+  }
+}</script>
+  <div class="Marquee-display ">
+    <div class="Marquee-measure">
+      
+        <h1
+
+          class="Marquee-item Marquee-item--text"
+
+          
+          style="margin-right: 0.5em; font-size: 2.3rem;"
+        >
+          🐦
+        </h1>
+      
+        <h1
+
+          class="Marquee-item Marquee-item--text"
+
+          
+          style="margin-right: 0.5em; font-size: 2.3rem;"
+        >
+          NFT COLLECTIBLES
+        </h1>
+      
+    </div>
+
+    <h1
+      
+      style="font-size: 2.3rem; --marquee-font-size-value: 2.3;"
+    >
+      <svg
+        class="Marquee-svg"
+        fill="currentColor"
+        aria-hidden="true"
+      >
+        <g class="Marquee-path-group" transform="translate(0, 0)">
+          <path class="Marquee-path" fill="none" stroke="transparent" stroke-width="0" d="" stroke-dasharray="" />
+        </g>
+        <text>
+          <textPath class="Marquee-svg-text"></textPath>
+        </text>
+        <text>
+          <textPath class="Marquee-svg-group" visibility="hidden">
+            
+              <tspan class="Marquee-svg-text">🐦</tspan>
+            
+              <tspan class="Marquee-svg-text">NFT COLLECTIBLES</tspan>
+            
+          </textPath>
+        </text>
+        <g class="Marquee-hitbox" data-hitbox >
+          <g class="Marquee-path-hitbox-group">
+            <path class="Marquee-path-hitbox" fill="none" stroke="transparent" d="" />
+            <path class="Marquee-path-hitbox-focus-outline" fill="none" stroke="transparent" stroke-width="2px" d="" />
+          </g>
+        </g>
+      </svg>
+      
+      <span class="v6-visually-hidden">
+        🐦 NFT COLLECTIBLES 
+      </span>
+    </h1>
+
+    <div class="Marquee-track"></div>
+  </div>
+</div>
+</div></div><div class="row sqs-row"><div class="col sqs-col-2 span-2"><div class="sqs-block spacer-block sqs-block-spacer sized vsize-1" data-block-type="21" id="block-a4959541a362969de317"><div class="sqs-block-content">&nbsp;</div></div></div><div class="col sqs-col-10 span-10"><div class="row sqs-row"><div class="col sqs-col-8 span-8"><div class="sqs-block spacer-block sqs-block-spacer" data-aspect-ratio="32.801161103047896" data-block-type="21" id="block-e4ed373314ed6ad35a22"><div class="sqs-block-content">&nbsp;</div></div><div class="sqs-block image-block sqs-block-image" data-block-type="5" id="block-yui_3_17_2_1_1655663678425_20715"><div class="sqs-block-content">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+    
+  
+    <div
+        class="
+          image-block-outer-wrapper
+          layout-caption-below
+          design-layout-inline
+          combination-animation-site-default
+          individual-animation-site-default
+          individual-text-animation-site-default
+        "
+        data-test="image-block-inline-outer-wrapper"
+    >
+
+      
+
+      
+        <figure
+            class="
+              sqs-block-image-figure
+              intrinsic
+            "
+            style="max-width:2035px;"
+        >
+          
+        
+        
+
+        
+          
+            
+          <div
+              
+              
+              class="image-block-wrapper"
+              data-animation-role="image"
+              
+  
+
+          >
+            <div class="sqs-image-shape-container-element
+              
+          
+        
+              has-aspect-ratio
+            " style="
+                position: relative;
+                
+                  padding-bottom:69.68058776855469%;
+                
+                overflow: hidden;
+              "
+              >
+              <noscript><img src="https://images.squarespace-cdn.com/content/v1/62ae0278f951920a263d4244/b9514da1-41a1-4ca8-8142-7dbd0e335086/Coming-Soon.gif" alt="Coming Soon" /></noscript><img class="thumb-image" src="https://images.squarespace-cdn.com/content/v1/62ae0278f951920a263d4244/b9514da1-41a1-4ca8-8142-7dbd0e335086/Coming-Soon.gif" data-image="https://images.squarespace-cdn.com/content/v1/62ae0278f951920a263d4244/b9514da1-41a1-4ca8-8142-7dbd0e335086/Coming-Soon.gif" data-image-dimensions="2035x1418" data-image-focal-point="0.5,0.5" alt="Coming Soon" data-load="false" data-image-id="62af6c6336c4fd5e9dcd6a72" data-type="image" />
+            </div>
+          </div>
+        
+          
+        
+
+        
+      
+        </figure>
+      
+
+    </div>
+  
+
+
+  
+
+
+</div></div></div><div class="col sqs-col-2 span-2"><div class="sqs-block spacer-block sqs-block-spacer sized vsize-1" data-block-type="21" id="block-89eb62dfd76edfca3187"><div class="sqs-block-content">&nbsp;</div></div></div></div></div></div><div class="row sqs-row"><div class="col sqs-col-2 span-2"><div class="sqs-block spacer-block sqs-block-spacer sized vsize-1" data-block-type="21" id="block-yui_3_17_2_1_1655585466800_29305"><div class="sqs-block-content">&nbsp;</div></div></div><div class="col sqs-col-10 span-10"><div class="row sqs-row"><div class="col sqs-col-8 span-8"><div class="sqs-block image-block sqs-block-image" data-block-type="5" id="block-3a945ca00e713cfb0109"><div class="sqs-block-content">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+    
+  
+    <div
+        class="
+          image-block-outer-wrapper
+          layout-caption-below
+          design-layout-inline
+          combination-animation-site-default
+          individual-animation-site-default
+          individual-text-animation-site-default
+        "
+        data-test="image-block-inline-outer-wrapper"
+    >
+
+      
+
+      
+        <figure
+            class="
+              sqs-block-image-figure
+              intrinsic
+            "
+            style="max-width:2449px;"
+        >
+          
+        
+        
+
+        
+          
+            
+          <div
+              
+              
+              class="image-block-wrapper"
+              data-animation-role="image"
+              
+  
+
+          >
+            <div class="sqs-image-shape-container-element
+              
+          
+        
+              has-aspect-ratio
+            " style="
+                position: relative;
+                
+                  padding-bottom:21.64148712158203%;
+                
+                overflow: hidden;
+              "
+              >
+              <noscript><img src="https://images.squarespace-cdn.com/content/v1/62ae0278f951920a263d4244/bde1a4c9-0797-45c5-ba1b-22c5924c3622/FollowUs.png" alt="" /></noscript><img class="thumb-image" src="https://images.squarespace-cdn.com/content/v1/62ae0278f951920a263d4244/bde1a4c9-0797-45c5-ba1b-22c5924c3622/FollowUs.png" data-image="https://images.squarespace-cdn.com/content/v1/62ae0278f951920a263d4244/bde1a4c9-0797-45c5-ba1b-22c5924c3622/FollowUs.png" data-image-dimensions="2449x530" data-image-focal-point="0.5,0.5" alt="" data-load="false" data-image-id="62ae20ca658b56087bdba1be" data-type="image" />
+            </div>
+          </div>
+        
+          
+        
+
+        
+      
+        </figure>
+      
+
+    </div>
+  
+
+
+  
+
+
+</div></div></div><div class="col sqs-col-2 span-2"><div class="sqs-block spacer-block sqs-block-spacer sized vsize-1" data-block-type="21" id="block-yui_3_17_2_1_1655585466800_34399"><div class="sqs-block-content">&nbsp;</div></div></div></div></div></div><div class="sqs-block socialaccountlinks-v2-block sqs-block-socialaccountlinks-v2" data-block-type="54" id="block-a7d6e3a72cfe75261a9d"><div class="sqs-block-content">
+
+
+
+<div class="sqs-svg-icon--outer social-icon-alignment-center social-icons-color- social-icons-size-extra-large social-icons-shape-circle social-icons-style-border" >
+  <nav class="sqs-svg-icon--list">
+    <a href="http://www.twitter.com/cooandthegang" target="_blank" class="sqs-svg-icon--wrapper twitter-unauth" aria-label="Twitter">
+      <div>
+        <svg class="sqs-svg-icon--social" viewBox="0 0 64 64">
+          <use class="sqs-use--icon" xlink:href="#twitter-unauth-icon"></use>
+          <use class="sqs-use--mask" xlink:href="#twitter-unauth-mask"></use>
+        </svg>
       </div>
-    </section>
+    </a><a href="http://Instagram.com/cooandthegang" target="_blank" class="sqs-svg-icon--wrapper instagram-unauth" aria-label="Instagram">
+      <div>
+        <svg class="sqs-svg-icon--social" viewBox="0 0 64 64">
+          <use class="sqs-use--icon" xlink:href="#instagram-unauth-icon"></use>
+          <use class="sqs-use--mask" xlink:href="#instagram-unauth-mask"></use>
+        </svg>
+      </div>
+    </a>
+  </nav>
+</div>
+</div></div><div class="sqs-block spacer-block sqs-block-spacer" data-aspect-ratio="23.714285714285715" data-block-type="21" id="block-d1cb49fc1ee2b786f944"><div class="sqs-block-content">&nbsp;</div></div><div class="row sqs-row"><div class="col sqs-col-1 span-1"><div class="sqs-block spacer-block sqs-block-spacer sized vsize-1" data-block-type="21" id="block-611668dad6202c97d3e9"><div class="sqs-block-content">&nbsp;</div></div></div><div class="col sqs-col-11 span-11"><div class="row sqs-row"><div class="col sqs-col-10 span-10"><div class="sqs-block image-block sqs-block-image" data-block-type="5" id="block-4639ebbd9f882e6f1aea"><div class="sqs-block-content">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+    
+  
+    <div
+        class="
+          image-block-outer-wrapper
+          layout-caption-below
+          design-layout-inline
+          combination-animation-site-default
+          individual-animation-site-default
+          individual-text-animation-site-default
+        "
+        data-test="image-block-inline-outer-wrapper"
+    >
+
+      
+
+      
+        <figure
+            class="
+              sqs-block-image-figure
+              intrinsic
+            "
+            style="max-width:2219px;"
+        >
+          
+        
+        
+
+        
+          
+            
+          <div
+              
+              
+              class="image-block-wrapper"
+              data-animation-role="image"
+              
+  
+
+          >
+            <div class="sqs-image-shape-container-element
+              
+          
+        
+              has-aspect-ratio
+            " style="
+                position: relative;
+                
+                  padding-bottom:63.316810607910156%;
+                
+                overflow: hidden;
+              "
+              >
+              <noscript><img src="https://images.squarespace-cdn.com/content/v1/62ae0278f951920a263d4244/a2ae122a-fb4d-495d-9c21-9384bf9ab136/Cooandthegangpigeons.gif" alt="" /></noscript><img class="thumb-image" src="https://images.squarespace-cdn.com/content/v1/62ae0278f951920a263d4244/a2ae122a-fb4d-495d-9c21-9384bf9ab136/Cooandthegangpigeons.gif" data-image="https://images.squarespace-cdn.com/content/v1/62ae0278f951920a263d4244/a2ae122a-fb4d-495d-9c21-9384bf9ab136/Cooandthegangpigeons.gif" data-image-dimensions="2219x1405" data-image-focal-point="0.5,0.5" alt="" data-load="false" data-image-id="62ae20ca658b56087bdba1bb" data-type="image" />
+            </div>
+          </div>
+        
+          
+        
+
+        
+      
+        </figure>
+      
+
+    </div>
+  
+
+
+  
+
+
+</div></div><div class="sqs-block html-block sqs-block-html" data-block-type="2" id="block-yui_3_17_2_1_1655661722349_17497"><div class="sqs-block-content"><h3 style="text-align:center;white-space:pre-wrap;">IF YOU’RE READING THIS, YOU’RE EARLY. 👇</h3>
+
+
+</div></div></div><div class="col sqs-col-1 span-1"><div class="sqs-block spacer-block sqs-block-spacer sized vsize-1" data-block-type="21" id="block-98d582401fd01ac0c387"><div class="sqs-block-content">&nbsp;</div></div></div></div></div></div><div class="row sqs-row"><div class="col sqs-col-4 span-4"><div class="sqs-block spacer-block sqs-block-spacer sized vsize-1" data-block-type="21" id="block-58c9f188227aee373cf3"><div class="sqs-block-content">&nbsp;</div></div></div><div class="col sqs-col-8 span-8"><div class="sqs-block spacer-block sqs-block-spacer sized vsize-1" data-block-type="21" id="block-0cf6d4989c8a62b54f59"><div class="sqs-block-content">&nbsp;</div></div></div></div><div class="sqs-block spacer-block sqs-block-spacer" data-aspect-ratio="22.19047619047619" data-block-type="21" id="block-7b4769972cb99dd7b90d"><div class="sqs-block-content">&nbsp;</div></div><div class="row sqs-row"><div class="col sqs-col-6 span-6"><div class="sqs-block image-block sqs-block-image" data-block-type="5" id="block-2713fed1c559c02e29cf"><div class="sqs-block-content">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+    
+  
+    <div
+        class="
+          image-block-outer-wrapper
+          layout-caption-below
+          design-layout-inline
+          combination-animation-site-default
+          individual-animation-site-default
+          individual-text-animation-site-default
+        "
+        data-test="image-block-inline-outer-wrapper"
+    >
+
+      
+
+      
+        <figure
+            class="
+              sqs-block-image-figure
+              intrinsic
+            "
+            style="max-width:1353px;"
+        >
+          
+        
+        
+
+        
+          
+            
+          <div
+              
+              
+              class="image-block-wrapper"
+              data-animation-role="image"
+              
+  
+
+          >
+            <div class="sqs-image-shape-container-element
+              
+          
+        
+              has-aspect-ratio
+            " style="
+                position: relative;
+                
+                  padding-bottom:104.80413818359375%;
+                
+                overflow: hidden;
+              "
+              >
+              <noscript><img src="https://images.squarespace-cdn.com/content/v1/62ae0278f951920a263d4244/d346d253-aaa6-4626-b5d2-13e1755372df/Blimp.gif" alt="" /></noscript><img class="thumb-image" src="https://images.squarespace-cdn.com/content/v1/62ae0278f951920a263d4244/d346d253-aaa6-4626-b5d2-13e1755372df/Blimp.gif" data-image="https://images.squarespace-cdn.com/content/v1/62ae0278f951920a263d4244/d346d253-aaa6-4626-b5d2-13e1755372df/Blimp.gif" data-image-dimensions="1353x1418" data-image-focal-point="0.5,0.5" alt="" data-load="false" data-image-id="62ae20ca658b56087bdba1c1" data-type="image" />
+            </div>
+          </div>
+        
+          
+        
+
+        
+      
+        </figure>
+      
+
+    </div>
+  
+
+
+  
+
+
+</div></div></div><div class="col sqs-col-6 span-6"><div class="sqs-block spacer-block sqs-block-spacer sized vsize-1" data-aspect-ratio="32.874015748031496" data-block-type="21" id="block-96607715c638d2c8551a"><div class="sqs-block-content">&nbsp;</div></div><div class="sqs-block html-block sqs-block-html" data-block-type="2" id="block-39d9d63eaf39ae5d6ed9"><div class="sqs-block-content"><h2 style="text-align:center;white-space:pre-wrap;">BEAR MARKET? NAH. 🐻📉</h2><p style="text-align:center;white-space:pre-wrap;" class="">#Staycoo and carry on… 🐦📈</p><p class="" data-rte-preserve-empty="true" style="white-space:pre-wrap;"></p><p class="" data-rte-preserve-empty="true" style="white-space:pre-wrap;"></p><p class="" data-rte-preserve-empty="true" style="white-space:pre-wrap;"></p>
+
+
+</div></div></div></div><div class="sqs-block spacer-block sqs-block-spacer" data-aspect-ratio="23.047619047619047" data-block-type="21" id="block-yui_3_17_2_1_1655663215111_24676"><div class="sqs-block-content">&nbsp;</div></div><div class="row sqs-row"><div class="col sqs-col-6 span-6"><div class="sqs-block image-block sqs-block-image" data-block-type="5" id="block-6b7b6df25640558fff31"><div class="sqs-block-content">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+    
+  
+    <div
+        class="
+          image-block-outer-wrapper
+          layout-caption-below
+          design-layout-inline
+          combination-animation-site-default
+          individual-animation-site-default
+          individual-text-animation-site-default
+        "
+        data-test="image-block-inline-outer-wrapper"
+    >
+
+      
+
+      
+        <figure
+            class="
+              sqs-block-image-figure
+              intrinsic
+            "
+            style="max-width:1353px;"
+        >
+          
+        
+        
+
+        
+          
+            
+          <div
+              
+              
+              class="image-block-wrapper"
+              data-animation-role="image"
+              
+  
+
+          >
+            <div class="sqs-image-shape-container-element
+              
+          
+        
+              has-aspect-ratio
+            " style="
+                position: relative;
+                
+                  padding-bottom:104.80413818359375%;
+                
+                overflow: hidden;
+              "
+              >
+              <noscript><img src="https://images.squarespace-cdn.com/content/v1/62ae0278f951920a263d4244/b5c12713-ae2d-49bf-a7ef-b29c24593881/Billboard.gif" alt="" /></noscript><img class="thumb-image" src="https://images.squarespace-cdn.com/content/v1/62ae0278f951920a263d4244/b5c12713-ae2d-49bf-a7ef-b29c24593881/Billboard.gif" data-image="https://images.squarespace-cdn.com/content/v1/62ae0278f951920a263d4244/b5c12713-ae2d-49bf-a7ef-b29c24593881/Billboard.gif" data-image-dimensions="1353x1418" data-image-focal-point="0.5,0.5" alt="" data-load="false" data-image-id="62ae20ca658b56087bdba1c4" data-type="image" />
+            </div>
+          </div>
+        
+          
+        
+
+        
+      
+        </figure>
+      
+
+    </div>
+  
+
+
+  
+
+
+</div></div></div><div class="col sqs-col-6 span-6"><div class="sqs-block spacer-block sqs-block-spacer sized vsize-1" data-aspect-ratio="16.53543307086614" data-block-type="21" id="block-f38547889faef5184ef2"><div class="sqs-block-content">&nbsp;</div></div><div class="sqs-block html-block sqs-block-html" data-block-type="2" id="block-fbfff0ee0643cf2df860"><div class="sqs-block-content"><h2 style="text-align:center;white-space:pre-wrap;">BIRDS ARE BORN FREE AND SO ARE WE. 💸</h2><p style="text-align:center;white-space:pre-wrap;" class="" data-rte-preserve-empty="true"></p><p style="text-align:center;white-space:pre-wrap;" class="">Free Mint (+Gas Fees)⚡</p><p style="text-align:center;white-space:pre-wrap;" class="">10,000 unique NFT collectibles🖼️ </p><p style="text-align:center;white-space:pre-wrap;" class="">1 per wallet🦊</p><p style="text-align:center;white-space:pre-wrap;" class="">Ethereum Blockchain⛓️</p><p class="" data-rte-preserve-empty="true" style="white-space:pre-wrap;"></p><p class="" data-rte-preserve-empty="true" style="white-space:pre-wrap;"></p><p class="" data-rte-preserve-empty="true" style="white-space:pre-wrap;"></p>
+
+
+</div></div></div></div><div class="sqs-block spacer-block sqs-block-spacer" data-aspect-ratio="21.61904761904762" data-block-type="21" id="block-20b0b0efa6ac948081ae"><div class="sqs-block-content">&nbsp;</div></div><div class="row sqs-row"><div class="col sqs-col-6 span-6"><div class="sqs-block image-block sqs-block-image" data-block-type="5" id="block-1df31b690f9ee7fe65e7"><div class="sqs-block-content">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+    
+  
+    <div
+        class="
+          image-block-outer-wrapper
+          layout-caption-below
+          design-layout-inline
+          combination-animation-site-default
+          individual-animation-site-default
+          individual-text-animation-site-default
+        "
+        data-test="image-block-inline-outer-wrapper"
+    >
+
+      
+
+      
+        <figure
+            class="
+              sqs-block-image-figure
+              intrinsic
+            "
+            style="max-width:1169px;"
+        >
+          
+        
+        
+
+        
+          
+            
+          <div
+              
+              
+              class="image-block-wrapper"
+              data-animation-role="image"
+              
+  
+
+          >
+            <div class="sqs-image-shape-container-element
+              
+          
+        
+              has-aspect-ratio
+            " style="
+                position: relative;
+                
+                  padding-bottom:92.98545837402344%;
+                
+                overflow: hidden;
+              "
+              >
+              <noscript><img src="https://images.squarespace-cdn.com/content/v1/62ae0278f951920a263d4244/e6265767-7063-402b-a70e-46df81907c61/DiscordRoadmap.gif" alt="" /></noscript><img class="thumb-image" src="https://images.squarespace-cdn.com/content/v1/62ae0278f951920a263d4244/e6265767-7063-402b-a70e-46df81907c61/DiscordRoadmap.gif" data-image="https://images.squarespace-cdn.com/content/v1/62ae0278f951920a263d4244/e6265767-7063-402b-a70e-46df81907c61/DiscordRoadmap.gif" data-image-dimensions="1169x1087" data-image-focal-point="0.5,0.5" alt="" data-load="false" data-image-id="62ae20ca658b56087bdba1c7" data-type="image" />
+            </div>
+          </div>
+        
+          
+        
+
+        
+      
+        </figure>
+      
+
+    </div>
+  
+
+
+  
+
+
+</div></div></div><div class="col sqs-col-6 span-6"><div class="sqs-block spacer-block sqs-block-spacer sized vsize-1" data-aspect-ratio="23.031496062992126" data-block-type="21" id="block-649005376a9fea7cd94f"><div class="sqs-block-content">&nbsp;</div></div><div class="sqs-block html-block sqs-block-html" data-block-type="2" id="block-8dd0f4509d961de13a84"><div class="sqs-block-content"><h2 style="text-align:center;white-space:pre-wrap;">YOU DON’T NEED ROADMAPS WHEN YOU HAVE WINGS. 🗺️</h2><p style="text-align:center;white-space:pre-wrap;" class="">✖️ No roadmap. ✖️ no discord.</p><p class="" data-rte-preserve-empty="true" style="white-space:pre-wrap;"></p><p class="" data-rte-preserve-empty="true" style="white-space:pre-wrap;"></p><p class="" data-rte-preserve-empty="true" style="white-space:pre-wrap;"></p>
+
+
+</div></div></div></div><div class="sqs-block spacer-block sqs-block-spacer" data-aspect-ratio="21.238095238095237" data-block-type="21" id="block-cdfb1157a601d3cf0c3b"><div class="sqs-block-content">&nbsp;</div></div><div class="row sqs-row"><div class="col sqs-col-6 span-6"><div class="sqs-block image-block sqs-block-image" data-block-type="5" id="block-17fe2de5c27f5f54ce6d"><div class="sqs-block-content">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+    
+  
+    <div
+        class="
+          image-block-outer-wrapper
+          layout-caption-below
+          design-layout-inline
+          combination-animation-site-default
+          individual-animation-site-default
+          individual-text-animation-site-default
+        "
+        data-test="image-block-inline-outer-wrapper"
+    >
+
+      
+
+      
+        <figure
+            class="
+              sqs-block-image-figure
+              intrinsic
+            "
+            style="max-width:1730px;"
+        >
+          
+        
+        
+
+        
+          
+            
+          <div
+              
+              
+              class="image-block-wrapper"
+              data-animation-role="image"
+              
+  
+
+          >
+            <div class="sqs-image-shape-container-element
+              
+          
+        
+              has-aspect-ratio
+            " style="
+                position: relative;
+                
+                  padding-bottom:78.38150024414062%;
+                
+                overflow: hidden;
+              "
+              >
+              <noscript><img src="https://images.squarespace-cdn.com/content/v1/62ae0278f951920a263d4244/1128c56e-25b0-4aab-af35-d2faa1f3d449/OverDeliver.png" alt="" /></noscript><img class="thumb-image" src="https://images.squarespace-cdn.com/content/v1/62ae0278f951920a263d4244/1128c56e-25b0-4aab-af35-d2faa1f3d449/OverDeliver.png" data-image="https://images.squarespace-cdn.com/content/v1/62ae0278f951920a263d4244/1128c56e-25b0-4aab-af35-d2faa1f3d449/OverDeliver.png" data-image-dimensions="1730x1356" data-image-focal-point="0.5,0.5" alt="" data-load="false" data-image-id="62ae20ca658b56087bdba1ca" data-type="image" />
+            </div>
+          </div>
+        
+          
+        
+
+        
+      
+        </figure>
+      
+
+    </div>
+  
+
+
+  
+
+
+</div></div></div><div class="col sqs-col-6 span-6"><div class="sqs-block spacer-block sqs-block-spacer sized vsize-1" data-aspect-ratio="17.322834645669293" data-block-type="21" id="block-59db5745c4f72ac1b45c"><div class="sqs-block-content">&nbsp;</div></div><div class="sqs-block html-block sqs-block-html" data-block-type="2" id="block-c38d88bbf830edc1f52f"><div class="sqs-block-content"><h2 style="text-align:center;white-space:pre-wrap;">SURPRISE + DELIGHT 💫</h2><p style="text-align:center;white-space:pre-wrap;" class="">Utility? No promises.👎</p><p style="text-align:center;white-space:pre-wrap;" class="">surprises? possibly.👐</p><p style="text-align:center;white-space:pre-wrap;" class="">vibes? guaranteed. 🤟</p><p class="" data-rte-preserve-empty="true" style="white-space:pre-wrap;"></p><p class="" data-rte-preserve-empty="true" style="white-space:pre-wrap;"></p>
+
+
+</div></div></div></div><div class="sqs-block spacer-block sqs-block-spacer" data-aspect-ratio="21.904761904761905" data-block-type="21" id="block-ce7d83282b7e81b84e82"><div class="sqs-block-content">&nbsp;</div></div><div class="sqs-block image-block sqs-block-image" data-block-type="5" id="block-yui_3_17_2_1_1655578887043_26542"><div class="sqs-block-content">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+    
+  
+    <div
+        class="
+          image-block-outer-wrapper
+          layout-caption-below
+          design-layout-inline
+          combination-animation-site-default
+          individual-animation-site-default
+          individual-text-animation-site-default
+        "
+        data-test="image-block-inline-outer-wrapper"
+    >
+
+      
+
+      
+        <figure
+            class="
+              sqs-block-image-figure
+              intrinsic
+            "
+            style="max-width:2749px;"
+        >
+          
+        
+        
+
+        
+          
+            
+          <div
+              
+              
+              class="image-block-wrapper"
+              data-animation-role="image"
+              
+  
+
+          >
+            <div class="sqs-image-shape-container-element
+              
+          
+        
+              has-aspect-ratio
+            " style="
+                position: relative;
+                
+                  padding-bottom:102.83739471435547%;
+                
+                overflow: hidden;
+              "
+              >
+              <noscript><img src="https://images.squarespace-cdn.com/content/v1/62ae0278f951920a263d4244/cd0bee97-b984-42fb-aa98-4a5c1d9e6f93/Flockwithus.png" alt="Flock With US" /></noscript><img class="thumb-image" src="https://images.squarespace-cdn.com/content/v1/62ae0278f951920a263d4244/cd0bee97-b984-42fb-aa98-4a5c1d9e6f93/Flockwithus.png" data-image="https://images.squarespace-cdn.com/content/v1/62ae0278f951920a263d4244/cd0bee97-b984-42fb-aa98-4a5c1d9e6f93/Flockwithus.png" data-image-dimensions="2749x2827" data-image-focal-point="0.5,0.5" alt="Flock With US" data-load="false" data-image-id="62ae216dbaaae500e2adfac9" data-type="image" />
+            </div>
+          </div>
+        
+          
+        
+
+        
+      
+        </figure>
+      
+
+    </div>
+  
+
+
+  
+
+
+</div></div><div class="sqs-block spacer-block sqs-block-spacer" data-aspect-ratio="13.428571428571429" data-block-type="21" id="block-yui_3_17_2_1_1655663215111_55141"><div class="sqs-block-content">&nbsp;</div></div></div></div></div>
+    </div>
+  </div>
+  
+</section>
+
+  
+    <section
+  data-test="page-section"
+  
+  data-section-theme=""
+  class='page-section
+    
+      layout-engine-section
+    
+    background-width--full-bleed
+    
+      section-height--large
+    
+    
+      content-width--medium
+    
+    horizontal-alignment--center
+    vertical-alignment--middle
+    
+       has-background
+    
+    
+    '
+  
+  data-section-id="62ae02c2634bae6c07be4926"
+  
+  data-controller="SectionWrapperController"
+  data-current-styles="{
+  &quot;backgroundImage&quot;: {
+    &quot;id&quot;: &quot;62ae21e6fb6a3e1b8ba4ee9a&quot;,
+    &quot;recordType&quot;: 2,
+    &quot;addedOn&quot;: 1655579110764,
+    &quot;updatedOn&quot;: 1655579110809,
+    &quot;workflowState&quot;: 1,
+    &quot;publishOn&quot;: 1655579110764,
+    &quot;authorId&quot;: &quot;586cefe520099ee6dd9cd914&quot;,
+    &quot;systemDataId&quot;: &quot;24f7fcd5-45b5-4ee7-ae42-883689c94b9e&quot;,
+    &quot;systemDataVariants&quot;: &quot;4000x8000,100w,300w,500w,750w,1000w,1500w,2500w&quot;,
+    &quot;systemDataSourceType&quot;: &quot;JPG&quot;,
+    &quot;filename&quot;: &quot;CloudBG.jpg&quot;,
+    &quot;mediaFocalPoint&quot;: {
+      &quot;x&quot;: 0.5,
+      &quot;y&quot;: 0.5,
+      &quot;source&quot;: 3
+    },
+    &quot;colorData&quot;: {
+      &quot;topLeftAverage&quot;: &quot;ebfefc&quot;,
+      &quot;topRightAverage&quot;: &quot;f0fefa&quot;,
+      &quot;bottomLeftAverage&quot;: &quot;ebfefb&quot;,
+      &quot;bottomRightAverage&quot;: &quot;edfefb&quot;,
+      &quot;centerAverage&quot;: &quot;ebfefc&quot;,
+      &quot;suggestedBgColor&quot;: &quot;ecfefb&quot;
+    },
+    &quot;urlId&quot;: &quot;xd20gbd5m0oq955m98rqw3xi188p4j&quot;,
+    &quot;title&quot;: &quot;&quot;,
+    &quot;body&quot;: null,
+    &quot;likeCount&quot;: 0,
+    &quot;commentCount&quot;: 0,
+    &quot;publicCommentCount&quot;: 0,
+    &quot;commentState&quot;: 2,
+    &quot;unsaved&quot;: false,
+    &quot;author&quot;: {
+      &quot;id&quot;: &quot;586cefe520099ee6dd9cd914&quot;,
+      &quot;displayName&quot;: &quot;Matthew Nguyen&quot;,
+      &quot;firstName&quot;: &quot;Matthew&quot;,
+      &quot;lastName&quot;: &quot;Nguyen&quot;
+    },
+    &quot;assetUrl&quot;: &quot;https://images.squarespace-cdn.com/content/v1/62ae0278f951920a263d4244/24f7fcd5-45b5-4ee7-ae42-883689c94b9e/CloudBG.jpg&quot;,
+    &quot;contentType&quot;: &quot;image/jpeg&quot;,
+    &quot;items&quot;: [ ],
+    &quot;pushedServices&quot;: { },
+    &quot;pendingPushedServices&quot;: { },
+    &quot;recordTypeLabel&quot;: &quot;image&quot;,
+    &quot;originalSize&quot;: &quot;4000x8000&quot;
+  },
+  &quot;imageOverlayOpacity&quot;: 0.15,
+  &quot;backgroundWidth&quot;: &quot;background-width--full-bleed&quot;,
+  &quot;sectionHeight&quot;: &quot;section-height--large&quot;,
+  &quot;horizontalAlignment&quot;: &quot;horizontal-alignment--center&quot;,
+  &quot;verticalAlignment&quot;: &quot;vertical-alignment--middle&quot;,
+  &quot;contentWidth&quot;: &quot;content-width--medium&quot;,
+  &quot;sectionTheme&quot;: &quot;&quot;,
+  &quot;sectionAnimation&quot;: &quot;none&quot;,
+  &quot;backgroundMode&quot;: &quot;image&quot;
+}"
+  data-animation="none"
+   
+  
+  
+>
+  <div class="section-background">
+  
+    
+      
+      
+        
+
+
+
+
+    
+  <img alt=""
+    
+    src="https://images.squarespace-cdn.com/content/v1/62ae0278f951920a263d4244/24f7fcd5-45b5-4ee7-ae42-883689c94b9e/CloudBG.jpg" data-image="https://images.squarespace-cdn.com/content/v1/62ae0278f951920a263d4244/24f7fcd5-45b5-4ee7-ae42-883689c94b9e/CloudBG.jpg" data-image-dimensions="4000x8000" data-image-focal-point="0.5,0.5" alt="CloudBG.jpg" 
+    data-load="false"
+    
+  />
+
+      
+      <div class="section-background-overlay" style="opacity: 0.15;"></div>
+    
+  
+  </div>
+  <div
+    class="content-wrapper"
+    style='
+      
+        
+      
+    '
+  >
+    <div
+      class="content"
+      
+    >
+      
+      
+      
+      
+      <div class="sqs-layout sqs-grid-12 columns-12" data-type="page-section" id="page-section-62ae02c2634bae6c07be4926"><div class="row sqs-row"><div class="col sqs-col-12 span-12"><div class="row sqs-row"><div class="col sqs-col-2 span-2"><div class="sqs-block spacer-block sqs-block-spacer sized vsize-1" data-block-type="21" id="block-yui_3_17_2_1_1655585904043_39111"><div class="sqs-block-content">&nbsp;</div></div></div><div class="col sqs-col-10 span-10"><div class="row sqs-row"><div class="col sqs-col-8 span-8"><div class="sqs-block image-block sqs-block-image" data-block-type="5" id="block-yui_3_17_2_1_1655578517516_25729"><div class="sqs-block-content">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+    
+  
+    <div
+        class="
+          image-block-outer-wrapper
+          layout-caption-below
+          design-layout-inline
+          combination-animation-site-default
+          individual-animation-site-default
+          individual-text-animation-site-default
+        "
+        data-test="image-block-inline-outer-wrapper"
+    >
+
+      
+
+      
+        <figure
+            class="
+              sqs-block-image-figure
+              intrinsic
+            "
+            style="max-width:2529px;"
+        >
+          
+        
+        
+
+        
+          
+            
+          <div
+              
+              
+              class="image-block-wrapper"
+              data-animation-role="image"
+              
+  
+
+          >
+            <div class="sqs-image-shape-container-element
+              
+          
+        
+              has-aspect-ratio
+            " style="
+                position: relative;
+                
+                  padding-bottom:40.52985382080078%;
+                
+                overflow: hidden;
+              "
+              >
+              <noscript><img src="https://images.squarespace-cdn.com/content/v1/62ae0278f951920a263d4244/ad99adbc-be25-4669-8641-848ea4d630d5/BluechipTeam.png" alt="A Bluechip team" /></noscript><img class="thumb-image" src="https://images.squarespace-cdn.com/content/v1/62ae0278f951920a263d4244/ad99adbc-be25-4669-8641-848ea4d630d5/BluechipTeam.png" data-image="https://images.squarespace-cdn.com/content/v1/62ae0278f951920a263d4244/ad99adbc-be25-4669-8641-848ea4d630d5/BluechipTeam.png" data-image-dimensions="2529x1025" data-image-focal-point="0.5,0.5" alt="A Bluechip team" data-load="false" data-image-id="62ae1fbbb8915c4d66d0531a" data-type="image" />
+            </div>
+          </div>
+        
+          
+        
+
+        
+      
+        </figure>
+      
+
+    </div>
+  
+
+
+  
+
+
+</div></div><div class="sqs-block spacer-block sqs-block-spacer sized vsize-1" data-block-type="21" id="block-yui_3_17_2_1_1655663361096_46139"><div class="sqs-block-content">&nbsp;</div></div></div><div class="col sqs-col-2 span-2"><div class="sqs-block spacer-block sqs-block-spacer" data-aspect-ratio="2.458100558659218" data-block-type="21" id="block-yui_3_17_2_1_1655585904043_48425"><div class="sqs-block-content">&nbsp;</div></div></div></div></div></div><div class="row sqs-row"><div class="col sqs-col-6 span-6"><div class="sqs-block image-block sqs-block-image" data-block-type="5" id="block-yui_3_17_2_1_1655578100383_22836"><div class="sqs-block-content">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+    
+  
+    <div
+        class="
+          image-block-outer-wrapper
+          layout-caption-below
+          design-layout-inline
+          combination-animation-site-default
+          individual-animation-site-default
+          individual-text-animation-site-default
+        "
+        data-test="image-block-inline-outer-wrapper"
+    >
+
+      
+
+      
+        <figure
+            class="
+              sqs-block-image-figure
+              intrinsic
+            "
+            style="max-width:684px;"
+        >
+          
+        
+        
+
+        
+          
+            
+          <div
+              
+              
+              class="image-block-wrapper"
+              data-animation-role="image"
+              
+  
+
+          >
+            <div class="sqs-image-shape-container-element
+              
+          
+        
+              has-aspect-ratio
+            " style="
+                position: relative;
+                
+                  padding-bottom:100.14619445800781%;
+                
+                overflow: hidden;
+              "
+              >
+              <noscript><img src="https://images.squarespace-cdn.com/content/v1/62ae0278f951920a263d4244/bef5ce61-e454-4077-88fc-ac6046d365f9/Pmoney.png" alt="" /></noscript><img class="thumb-image" src="https://images.squarespace-cdn.com/content/v1/62ae0278f951920a263d4244/bef5ce61-e454-4077-88fc-ac6046d365f9/Pmoney.png" data-image="https://images.squarespace-cdn.com/content/v1/62ae0278f951920a263d4244/bef5ce61-e454-4077-88fc-ac6046d365f9/Pmoney.png" data-image-dimensions="684x685" data-image-focal-point="0.5,0.5" alt="" data-load="false" data-image-id="62ae1e6dda176e2aa245aee3" data-type="image" />
+            </div>
+          </div>
+        
+          
+        
+
+        
+      
+        </figure>
+      
+
+    </div>
+  
+
+
+  
+
+
+</div></div></div><div class="col sqs-col-6 span-6"><div class="sqs-block html-block sqs-block-html" data-block-type="2" id="block-5c6c0f0942a4b07ae54e"><div class="sqs-block-content"><h3 style="white-space:pre-wrap;">P-MONEY ⚡️⚡️⚡️⚡️⚡️</h3><h4 style="white-space:pre-wrap;">CREATIVE DIRECTOR, ARTIST, BIZ DEVELOPMENT</h4><p class="" style="white-space:pre-wrap;">internationally published artist, product + graphic designer, marketer and entrepreneur.</p><p class="" style="white-space:pre-wrap;">founder of 4x Web2 companies and 1x Web3 company. </p><p class="" style="white-space:pre-wrap;">Sold 4+ million products worldwide.</p><p class="" style="white-space:pre-wrap;">Past client HIGHLIGHTS include NIKE, shady aftermath, BAd boy records, Ye, DR OETKER, Sanrio, SPORTS DIRECT AND MORE. </p><p class="" style="white-space:pre-wrap;">Passion for building brands and bringing products to market.</p><p class="" style="white-space:pre-wrap;">web3 advocate, art and nft enthusiast. degen. </p>
+
+
+</div></div></div></div><div class="sqs-block html-block sqs-block-html" data-block-type="2" id="block-yui_3_17_2_1_1655578100383_23177"><div class="sqs-block-content"><p class="" style="white-space:pre-wrap;"><br></p>
+
+
+</div></div><div class="sqs-block spacer-block sqs-block-spacer sized vsize-1" data-block-type="21" id="block-79556e2cfc168e643e33"><div class="sqs-block-content">&nbsp;</div></div><div class="row sqs-row"><div class="col sqs-col-6 span-6"><div class="sqs-block image-block sqs-block-image" data-block-type="5" id="block-yui_3_17_2_1_1655578100383_37918"><div class="sqs-block-content">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+    
+  
+    <div
+        class="
+          image-block-outer-wrapper
+          layout-caption-below
+          design-layout-inline
+          combination-animation-site-default
+          individual-animation-site-default
+          individual-text-animation-site-default
+        "
+        data-test="image-block-inline-outer-wrapper"
+    >
+
+      
+
+      
+        <figure
+            class="
+              sqs-block-image-figure
+              intrinsic
+            "
+            style="max-width:684px;"
+        >
+          
+        
+        
+
+        
+          
+            
+          <div
+              
+              
+              class="image-block-wrapper"
+              data-animation-role="image"
+              
+  
+
+          >
+            <div class="sqs-image-shape-container-element
+              
+          
+        
+              has-aspect-ratio
+            " style="
+                position: relative;
+                
+                  padding-bottom:100.14619445800781%;
+                
+                overflow: hidden;
+              "
+              >
+              <noscript><img src="https://images.squarespace-cdn.com/content/v1/62ae0278f951920a263d4244/1d7f53e4-88d8-4b30-ba40-501ef8d748ce/Gdog.png" alt="" /></noscript><img class="thumb-image" src="https://images.squarespace-cdn.com/content/v1/62ae0278f951920a263d4244/1d7f53e4-88d8-4b30-ba40-501ef8d748ce/Gdog.png" data-image="https://images.squarespace-cdn.com/content/v1/62ae0278f951920a263d4244/1d7f53e4-88d8-4b30-ba40-501ef8d748ce/Gdog.png" data-image-dimensions="684x685" data-image-focal-point="0.5,0.5" alt="" data-load="false" data-image-id="62ae1eaa0cbca75b2471511c" data-type="image" />
+            </div>
+          </div>
+        
+          
+        
+
+        
+      
+        </figure>
+      
+
+    </div>
+  
+
+
+  
+
+
+</div></div></div><div class="col sqs-col-6 span-6"><div class="sqs-block html-block sqs-block-html" data-block-type="2" id="block-54e6850726e0f731eec6"><div class="sqs-block-content"><h3 style="white-space:pre-wrap;">G-DOG ⭐️⭐️⭐️⭐️⭐️</h3><h4 style="white-space:pre-wrap;">DEVELOPER, TECH CONSULTANT</h4><p class="" style="white-space:pre-wrap;">app builder, dev with 11+ years experience.</p><p class="" style="white-space:pre-wrap;">Loves sci-fi and bbq. Web3 obsessed.</p>
+
+
+</div></div></div></div><div class="sqs-block spacer-block sqs-block-spacer sized vsize-1" data-block-type="21" id="block-f15217111b7c717bf393"><div class="sqs-block-content">&nbsp;</div></div><div class="row sqs-row"><div class="col sqs-col-6 span-6"><div class="sqs-block image-block sqs-block-image" data-block-type="5" id="block-yui_3_17_2_1_1655578343047_9710"><div class="sqs-block-content">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+    
+  
+    <div
+        class="
+          image-block-outer-wrapper
+          layout-caption-below
+          design-layout-inline
+          combination-animation-site-default
+          individual-animation-site-default
+          individual-text-animation-site-default
+        "
+        data-test="image-block-inline-outer-wrapper"
+    >
+
+      
+
+      
+        <figure
+            class="
+              sqs-block-image-figure
+              intrinsic
+            "
+            style="max-width:684px;"
+        >
+          
+        
+        
+
+        
+          
+            
+          <div
+              
+              
+              class="image-block-wrapper"
+              data-animation-role="image"
+              
+  
+
+          >
+            <div class="sqs-image-shape-container-element
+              
+          
+        
+              has-aspect-ratio
+            " style="
+                position: relative;
+                
+                  padding-bottom:100.14619445800781%;
+                
+                overflow: hidden;
+              "
+              >
+              <noscript><img src="https://images.squarespace-cdn.com/content/v1/62ae0278f951920a263d4244/7d03a834-2ca6-4334-98cc-a3952c6bcc47/Raff.png" alt="" /></noscript><img class="thumb-image" src="https://images.squarespace-cdn.com/content/v1/62ae0278f951920a263d4244/7d03a834-2ca6-4334-98cc-a3952c6bcc47/Raff.png" data-image="https://images.squarespace-cdn.com/content/v1/62ae0278f951920a263d4244/7d03a834-2ca6-4334-98cc-a3952c6bcc47/Raff.png" data-image-dimensions="684x685" data-image-focal-point="0.5,0.5" alt="" data-load="false" data-image-id="62ae1f2cb8915c4d66d04314" data-type="image" />
+            </div>
+          </div>
+        
+          
+        
+
+        
+      
+        </figure>
+      
+
+    </div>
+  
+
+
+  
+
+
+</div></div></div><div class="col sqs-col-6 span-6"><div class="sqs-block html-block sqs-block-html" data-block-type="2" id="block-d7123fb128855caa8485"><div class="sqs-block-content"><h3 style="white-space:pre-wrap;">RAFF 🐦🐦🐦🐦🐦</h3><h4 style="white-space:pre-wrap;">OPERATOR</h4><p class="" style="white-space:pre-wrap;">Mad about the outdoors. Loves to touch grass.</p><p class="" data-rte-preserve-empty="true" style="white-space:pre-wrap;"></p><p class="" data-rte-preserve-empty="true" style="white-space:pre-wrap;"></p><p class="" data-rte-preserve-empty="true" style="white-space:pre-wrap;"></p>
+
+
+</div></div></div></div><div class="sqs-block spacer-block sqs-block-spacer" data-aspect-ratio="25.428571428571427" data-block-type="21" id="block-yui_3_17_2_1_1655585904043_13026"><div class="sqs-block-content">&nbsp;</div></div><div class="row sqs-row"><div class="col sqs-col-4 span-4"><div class="sqs-block spacer-block sqs-block-spacer sized vsize-1" data-block-type="21" id="block-yui_3_17_2_1_1655585904043_16640"><div class="sqs-block-content">&nbsp;</div></div></div><div class="col sqs-col-8 span-8"><div class="row sqs-row"><div class="col sqs-col-4 span-4"><div class="sqs-block image-block sqs-block-image" data-block-type="5" id="block-yui_3_17_2_1_1655585904043_13889"><div class="sqs-block-content">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+    
+  
+    <div
+        class="
+          image-block-outer-wrapper
+          layout-caption-below
+          design-layout-inline
+          combination-animation-site-default
+          individual-animation-site-default
+          individual-text-animation-site-default
+        "
+        data-test="image-block-inline-outer-wrapper"
+    >
+
+      
+
+      
+        <figure
+            class="
+              sqs-block-image-figure
+              intrinsic
+            "
+            style="max-width:900px;"
+        >
+          
+        
+        
+
+        
+          
+            
+          <div
+              
+              
+              class="image-block-wrapper"
+              data-animation-role="image"
+              
+  
+
+          >
+            <div class="sqs-image-shape-container-element
+              
+          
+        
+              has-aspect-ratio
+            " style="
+                position: relative;
+                
+                  padding-bottom:26.11111068725586%;
+                
+                overflow: hidden;
+              "
+              >
+              <noscript><img src="https://images.squarespace-cdn.com/content/v1/62ae0278f951920a263d4244/80867fcf-4c06-4f9a-a937-39e4b04dcbc1/FACOOS.png" alt="FA-COOS" /></noscript><img class="thumb-image" src="https://images.squarespace-cdn.com/content/v1/62ae0278f951920a263d4244/80867fcf-4c06-4f9a-a937-39e4b04dcbc1/FACOOS.png" data-image="https://images.squarespace-cdn.com/content/v1/62ae0278f951920a263d4244/80867fcf-4c06-4f9a-a937-39e4b04dcbc1/FACOOS.png" data-image-dimensions="900x235" data-image-focal-point="0.5,0.5" alt="FA-COOS" data-load="false" data-image-id="62ae3d29e6de1c6182689965" data-type="image" />
+            </div>
+          </div>
+        
+          
+        
+
+        
+      
+        </figure>
+      
+
+    </div>
+  
+
+
+  
+
+
+</div></div></div><div class="col sqs-col-4 span-4"><div class="sqs-block spacer-block sqs-block-spacer sized vsize-1" data-block-type="21" id="block-yui_3_17_2_1_1655585904043_19510"><div class="sqs-block-content">&nbsp;</div></div></div></div></div></div><div class="sqs-block accordion-block sqs-block-accordion" data-block-type="69" id="block-yui_3_17_2_1_1655585904043_9357"><div class="sqs-block-content">
+
+
+
+
+
+<ul
+  class="accordion-items-container"
+  data-should-allow-multiple-open-items=""
+  data-is-divider-enabled="true"
+  data-is-first-divider-visible="true"
+  data-is-last-divider-visible="true"
+  data-is-expanded-first-item=""
+  data-accordion-title-alignment="left"
+  data-accordion-description-alignment="left"
+  data-accordion-description-placement="left"
+  data-accordion-icon-placement="right"
+>
+  
+    <li class="accordion-item">
+
+      
+        
+          <div
+            class="accordion-divider accordion-divider--top"
+            aria-hidden="true"
+            style="
+              height: 1px;
+              opacity: 1;
+            "
+          ></div>
+        
+      
+
+      <h4
+        class="
+          accordion-item__title-wrapper
+          
+          
+          
+        "
+        role="heading"
+        aria-level="3"
+      >
+        <button
+          class="accordion-item__click-target"
+          aria-expanded="false"
+          style="
+            padding-top: 30px;
+            padding-bottom: 30px;
+            padding-left: 0px;
+            padding-right: 0px;
+          "
+        >
+          <span
+            class="accordion-item__title"
+            style="
+              
+
+              
+                padding-right: 14px;
+              
+            "
+          >
+            WHAT IS COO AND THE GANG?
+          </span>
+          <div
+            class="accordion-icon-container"
+            data-is-open="false"
+            aria-hidden="true"
+            style="
+              height: 14px;
+              width: 14px;
+            "
+          >
+            
+              <div class="plus">
+                <div
+                  class="plus__horizontal-line"
+                  style="height: 1px"
+                ></div>
+                <div
+                  class="plus__vertical-line"
+                  style="height: 1px"
+                ></div>
+              </div>
+            
+          </div>
+        </button>
+      </h4>
+      <div class="accordion-item__dropdown" role="region">
+        <div
+          class="
+            accordion-item__description
+            
+            
+            
+          "
+          style="
+            padding-top: 0px;
+            padding-bottom: 30px;
+            padding-left: 0px;
+            padding-right: 0px;
+
+            
+            
+            min-width: 70%;
+            max-width: 300px;
+          "
+        >
+          <p class="" style="white-space:pre-wrap;">Coo and the gang© is a pioneering nft project powered by a bluechip team. Creating high-quality artwork, original IP and playful brand mixed with a fun, unpredictable degen mentality.</p><p class="" data-rte-preserve-empty="true" style="white-space:pre-wrap;"></p><p class="" style="white-space:pre-wrap;">Coo and the gang genesis is a <span style="text-decoration:underline"><strong>free mint</strong></span> of 10,000 unique generative nft collectibles, each hand-drawn, with over 10 traits and 400 individual assets.</p><p class="" data-rte-preserve-empty="true" style="white-space:pre-wrap;"></p><p class="" style="white-space:pre-wrap;">2,000 will go to whitelist, 7,000 to public mint.</p><p class="" data-rte-preserve-empty="true" style="white-space:pre-wrap;"></p><p class="" style="white-space:pre-wrap;">The founding team will keep 1,000 NFT’s for friends, fam, partners and marketing purposes.</p><p class="" data-rte-preserve-empty="true" style="white-space:pre-wrap;"></p><p class="" data-rte-preserve-empty="true" style="white-space:pre-wrap;"></p><p class="" data-rte-preserve-empty="true" style="white-space:pre-wrap;"></p>
+        </div>
+      </div>
+
+      
+        <div
+          class="accordion-divider"
+          aria-hidden="true"
+          style="
+            height: 1px;
+            opacity: 1;
+          "
+        ></div>
+      
+
+    </li>
+  
+    <li class="accordion-item">
+
+      
+        
+      
+
+      <h4
+        class="
+          accordion-item__title-wrapper
+          
+          
+          
+        "
+        role="heading"
+        aria-level="3"
+      >
+        <button
+          class="accordion-item__click-target"
+          aria-expanded="false"
+          style="
+            padding-top: 30px;
+            padding-bottom: 30px;
+            padding-left: 0px;
+            padding-right: 0px;
+          "
+        >
+          <span
+            class="accordion-item__title"
+            style="
+              
+
+              
+                padding-right: 14px;
+              
+            "
+          >
+            WHAT ARE YOUR OFFICIAL CHANNELS?
+          </span>
+          <div
+            class="accordion-icon-container"
+            data-is-open="false"
+            aria-hidden="true"
+            style="
+              height: 14px;
+              width: 14px;
+            "
+          >
+            
+              <div class="plus">
+                <div
+                  class="plus__horizontal-line"
+                  style="height: 1px"
+                ></div>
+                <div
+                  class="plus__vertical-line"
+                  style="height: 1px"
+                ></div>
+              </div>
+            
+          </div>
+        </button>
+      </h4>
+      <div class="accordion-item__dropdown" role="region">
+        <div
+          class="
+            accordion-item__description
+            
+            
+            
+          "
+          style="
+            padding-top: 0px;
+            padding-bottom: 30px;
+            padding-left: 0px;
+            padding-right: 0px;
+
+            
+            
+            min-width: 70%;
+            max-width: 300px;
+          "
+        >
+          <p class="" style="white-space:pre-wrap;">www.cooandthegang.io</p><p class="" style="white-space:pre-wrap;">Twitter.com/cooandthegang</p><p class="" style="white-space:pre-wrap;">Instagram.com/cooandthegang</p><p class="" data-rte-preserve-empty="true" style="white-space:pre-wrap;"></p><p class="" style="white-space:pre-wrap;">Note: We also have these URL’s redirecting to our website:</p><p class="" style="white-space:pre-wrap;">www.cooandthegang.xyz</p><p class="" style="white-space:pre-wrap;">www.cooandthegang.com</p><p class="" data-rte-preserve-empty="true" style="white-space:pre-wrap;"></p><p class="" style="white-space:pre-wrap;"><strong><em>CONSIDER ALL OTHER LINKS AS SCAMS AND/OR IMPERSONATIONs. STAY SAFE</em></strong></p><p class="" data-rte-preserve-empty="true" style="white-space:pre-wrap;"></p>
+        </div>
+      </div>
+
+      
+        <div
+          class="accordion-divider"
+          aria-hidden="true"
+          style="
+            height: 1px;
+            opacity: 1;
+          "
+        ></div>
+      
+
+    </li>
+  
+    <li class="accordion-item">
+
+      
+        
+      
+
+      <h4
+        class="
+          accordion-item__title-wrapper
+          
+          
+          
+        "
+        role="heading"
+        aria-level="3"
+      >
+        <button
+          class="accordion-item__click-target"
+          aria-expanded="false"
+          style="
+            padding-top: 30px;
+            padding-bottom: 30px;
+            padding-left: 0px;
+            padding-right: 0px;
+          "
+        >
+          <span
+            class="accordion-item__title"
+            style="
+              
+
+              
+                padding-right: 14px;
+              
+            "
+          >
+            WEN MINT? WEN REVEAL?
+          </span>
+          <div
+            class="accordion-icon-container"
+            data-is-open="false"
+            aria-hidden="true"
+            style="
+              height: 14px;
+              width: 14px;
+            "
+          >
+            
+              <div class="plus">
+                <div
+                  class="plus__horizontal-line"
+                  style="height: 1px"
+                ></div>
+                <div
+                  class="plus__vertical-line"
+                  style="height: 1px"
+                ></div>
+              </div>
+            
+          </div>
+        </button>
+      </h4>
+      <div class="accordion-item__dropdown" role="region">
+        <div
+          class="
+            accordion-item__description
+            
+            
+            
+          "
+          style="
+            padding-top: 0px;
+            padding-bottom: 30px;
+            padding-left: 0px;
+            padding-right: 0px;
+
+            
+            
+            min-width: 70%;
+            max-width: 300px;
+          "
+        >
+          <p class="" style="white-space:pre-wrap;">MINT DETAILS REVEALED SOON. check back regularly and follow our official channels for our latest announcements.</p><p class="" data-rte-preserve-empty="true" style="white-space:pre-wrap;"></p><p class="" style="white-space:pre-wrap;">REVEAL WILL BE ANNOUNCED IN THE WEEKS FOLLOWING MINT.</p>
+        </div>
+      </div>
+
+      
+        <div
+          class="accordion-divider"
+          aria-hidden="true"
+          style="
+            height: 1px;
+            opacity: 1;
+          "
+        ></div>
+      
+
+    </li>
+  
+    <li class="accordion-item">
+
+      
+        
+      
+
+      <h4
+        class="
+          accordion-item__title-wrapper
+          
+          
+          
+        "
+        role="heading"
+        aria-level="3"
+      >
+        <button
+          class="accordion-item__click-target"
+          aria-expanded="false"
+          style="
+            padding-top: 30px;
+            padding-bottom: 30px;
+            padding-left: 0px;
+            padding-right: 0px;
+          "
+        >
+          <span
+            class="accordion-item__title"
+            style="
+              
+
+              
+                padding-right: 14px;
+              
+            "
+          >
+            HOW DO I GET WHITELIST?
+          </span>
+          <div
+            class="accordion-icon-container"
+            data-is-open="false"
+            aria-hidden="true"
+            style="
+              height: 14px;
+              width: 14px;
+            "
+          >
+            
+              <div class="plus">
+                <div
+                  class="plus__horizontal-line"
+                  style="height: 1px"
+                ></div>
+                <div
+                  class="plus__vertical-line"
+                  style="height: 1px"
+                ></div>
+              </div>
+            
+          </div>
+        </button>
+      </h4>
+      <div class="accordion-item__dropdown" role="region">
+        <div
+          class="
+            accordion-item__description
+            
+            
+            
+          "
+          style="
+            padding-top: 0px;
+            padding-bottom: 30px;
+            padding-left: 0px;
+            padding-right: 0px;
+
+            
+            
+            min-width: 70%;
+            max-width: 300px;
+          "
+        >
+          <p class="" style="white-space:pre-wrap;">WE WILL BE RUNNING RAFFLES AND RANDOM CONTESTS ON OUR SOCIALS IN THE LEAD TO MINT.</p><p class="" data-rte-preserve-empty="true" style="white-space:pre-wrap;"></p><p class="" style="white-space:pre-wrap;">FOLLOW OUR OFFICIAL SOCIALS FOR DETAILS:</p><p class="" data-rte-preserve-empty="true" style="white-space:pre-wrap;"></p><p class="" style="white-space:pre-wrap;">www.twitter.com/cooandthegang</p><p class="" style="white-space:pre-wrap;">www.instagram.com/cooandthegang</p>
+        </div>
+      </div>
+
+      
+        <div
+          class="accordion-divider"
+          aria-hidden="true"
+          style="
+            height: 1px;
+            opacity: 1;
+          "
+        ></div>
+      
+
+    </li>
+  
+    <li class="accordion-item">
+
+      
+        
+      
+
+      <h4
+        class="
+          accordion-item__title-wrapper
+          
+          
+          
+        "
+        role="heading"
+        aria-level="3"
+      >
+        <button
+          class="accordion-item__click-target"
+          aria-expanded="false"
+          style="
+            padding-top: 30px;
+            padding-bottom: 30px;
+            padding-left: 0px;
+            padding-right: 0px;
+          "
+        >
+          <span
+            class="accordion-item__title"
+            style="
+              
+
+              
+                padding-right: 14px;
+              
+            "
+          >
+            WHY NO DISCORD?
+          </span>
+          <div
+            class="accordion-icon-container"
+            data-is-open="false"
+            aria-hidden="true"
+            style="
+              height: 14px;
+              width: 14px;
+            "
+          >
+            
+              <div class="plus">
+                <div
+                  class="plus__horizontal-line"
+                  style="height: 1px"
+                ></div>
+                <div
+                  class="plus__vertical-line"
+                  style="height: 1px"
+                ></div>
+              </div>
+            
+          </div>
+        </button>
+      </h4>
+      <div class="accordion-item__dropdown" role="region">
+        <div
+          class="
+            accordion-item__description
+            
+            
+            
+          "
+          style="
+            padding-top: 0px;
+            padding-bottom: 30px;
+            padding-left: 0px;
+            padding-right: 0px;
+
+            
+            
+            min-width: 70%;
+            max-width: 300px;
+          "
+        >
+          <p class="" style="white-space:pre-wrap;">How many times have you seen a vibrant discord ‘community’ disappear just days after a project reveal? </p><p class="" data-rte-preserve-empty="true" style="white-space:pre-wrap;"></p><p class="" style="white-space:pre-wrap;">Too many fucking times. that’s how many.</p><p class="" data-rte-preserve-empty="true" style="white-space:pre-wrap;"></p><p class="" style="white-space:pre-wrap;">What’s more, the process of jumping through hoops and grinding for a whitelist is shit. it fosters fake interactions and spam posts, rarely creating genuine communities. This is why we’ve stayed away from discord.</p><p class="" data-rte-preserve-empty="true" style="white-space:pre-wrap;"></p><p class="" style="white-space:pre-wrap;">more importantly, an absence of discord also limits opportunities for scammers.</p>
+        </div>
+      </div>
+
+      
+        <div
+          class="accordion-divider"
+          aria-hidden="true"
+          style="
+            height: 1px;
+            opacity: 1;
+          "
+        ></div>
+      
+
+    </li>
+  
+    <li class="accordion-item">
+
+      
+        
+      
+
+      <h4
+        class="
+          accordion-item__title-wrapper
+          
+          
+          
+        "
+        role="heading"
+        aria-level="3"
+      >
+        <button
+          class="accordion-item__click-target"
+          aria-expanded="false"
+          style="
+            padding-top: 30px;
+            padding-bottom: 30px;
+            padding-left: 0px;
+            padding-right: 0px;
+          "
+        >
+          <span
+            class="accordion-item__title"
+            style="
+              
+
+              
+                padding-right: 14px;
+              
+            "
+          >
+            WHY NO ROADMAP OR PROMISE OF UTILITY?
+          </span>
+          <div
+            class="accordion-icon-container"
+            data-is-open="false"
+            aria-hidden="true"
+            style="
+              height: 14px;
+              width: 14px;
+            "
+          >
+            
+              <div class="plus">
+                <div
+                  class="plus__horizontal-line"
+                  style="height: 1px"
+                ></div>
+                <div
+                  class="plus__vertical-line"
+                  style="height: 1px"
+                ></div>
+              </div>
+            
+          </div>
+        </button>
+      </h4>
+      <div class="accordion-item__dropdown" role="region">
+        <div
+          class="
+            accordion-item__description
+            
+            
+            
+          "
+          style="
+            padding-top: 0px;
+            padding-bottom: 30px;
+            padding-left: 0px;
+            padding-right: 0px;
+
+            
+            
+            min-width: 70%;
+            max-width: 300px;
+          "
+        >
+          <p class="" style="white-space:pre-wrap;">if we promised to make you some cheap merch in a year’s time is that value-add utility? </p><p class="" data-rte-preserve-empty="true" style="white-space:pre-wrap;"></p><p class="" style="white-space:pre-wrap;">Utility more often than not just ends up an invite to a socially-awkward event at a bar in a city halfway across the world you can’t get to.</p><p class="" data-rte-preserve-empty="true" style="white-space:pre-wrap;"></p><p class="" style="white-space:pre-wrap;">We believe under-promising and over delivering is better and encourage you to collect our nft’s because they’re fire 🔥</p><p class="" data-rte-preserve-empty="true" style="white-space:pre-wrap;"></p><p class="" style="white-space:pre-wrap;">who knows, you might be surprised or delighted?</p>
+        </div>
+      </div>
+
+      
+        <div
+          class="accordion-divider"
+          aria-hidden="true"
+          style="
+            height: 1px;
+            opacity: 1;
+          "
+        ></div>
+      
+
+    </li>
+  
+    <li class="accordion-item">
+
+      
+        
+      
+
+      <h4
+        class="
+          accordion-item__title-wrapper
+          
+          
+          
+        "
+        role="heading"
+        aria-level="3"
+      >
+        <button
+          class="accordion-item__click-target"
+          aria-expanded="false"
+          style="
+            padding-top: 30px;
+            padding-bottom: 30px;
+            padding-left: 0px;
+            padding-right: 0px;
+          "
+        >
+          <span
+            class="accordion-item__title"
+            style="
+              
+
+              
+                padding-right: 14px;
+              
+            "
+          >
+            WHO'S BEHIND THE PROJECT?
+          </span>
+          <div
+            class="accordion-icon-container"
+            data-is-open="false"
+            aria-hidden="true"
+            style="
+              height: 14px;
+              width: 14px;
+            "
+          >
+            
+              <div class="plus">
+                <div
+                  class="plus__horizontal-line"
+                  style="height: 1px"
+                ></div>
+                <div
+                  class="plus__vertical-line"
+                  style="height: 1px"
+                ></div>
+              </div>
+            
+          </div>
+        </button>
+      </h4>
+      <div class="accordion-item__dropdown" role="region">
+        <div
+          class="
+            accordion-item__description
+            
+            
+            
+          "
+          style="
+            padding-top: 0px;
+            padding-bottom: 30px;
+            padding-left: 0px;
+            padding-right: 0px;
+
+            
+            
+            min-width: 70%;
+            max-width: 300px;
+          "
+        >
+          <p class="" style="white-space:pre-wrap;">A COUPLE OF OLD SCHOOL FRIENDS PASSIONATE ABOUT ART, MUSIC, TECH AND WEB3  WHO HAPPEN TO BE EXPERIENCED IN BUILDING VALUABLE BRANDS AND BUSINESSES</p>
+        </div>
+      </div>
+
+      
+        <div
+          class="accordion-divider"
+          aria-hidden="true"
+          style="
+            height: 1px;
+            opacity: 1;
+          "
+        ></div>
+      
+
+    </li>
+  
+    <li class="accordion-item">
+
+      
+        
+      
+
+      <h4
+        class="
+          accordion-item__title-wrapper
+          
+          
+          
+        "
+        role="heading"
+        aria-level="3"
+      >
+        <button
+          class="accordion-item__click-target"
+          aria-expanded="false"
+          style="
+            padding-top: 30px;
+            padding-bottom: 30px;
+            padding-left: 0px;
+            padding-right: 0px;
+          "
+        >
+          <span
+            class="accordion-item__title"
+            style="
+              
+
+              
+                padding-right: 14px;
+              
+            "
+          >
+            DO I OWN THE RIGHTS TO MY NFT ARTWORK?
+          </span>
+          <div
+            class="accordion-icon-container"
+            data-is-open="false"
+            aria-hidden="true"
+            style="
+              height: 14px;
+              width: 14px;
+            "
+          >
+            
+              <div class="plus">
+                <div
+                  class="plus__horizontal-line"
+                  style="height: 1px"
+                ></div>
+                <div
+                  class="plus__vertical-line"
+                  style="height: 1px"
+                ></div>
+              </div>
+            
+          </div>
+        </button>
+      </h4>
+      <div class="accordion-item__dropdown" role="region">
+        <div
+          class="
+            accordion-item__description
+            
+            
+            
+          "
+          style="
+            padding-top: 0px;
+            padding-bottom: 30px;
+            padding-left: 0px;
+            padding-right: 0px;
+
+            
+            
+            min-width: 70%;
+            max-width: 300px;
+          "
+        >
+          <p class="" style="white-space:pre-wrap;">agreement:</p><p class="" style="white-space:pre-wrap;">Upon receiving Ownership of a Licensed ‘coo and the gang’ NFT we shall grant you a non-exclusive, worldwide, royalty-free license to: </p><p class="" data-rte-preserve-empty="true" style="white-space:pre-wrap;"></p><ul data-rte-list="default"><li><p class="" style="white-space:pre-wrap;">use or otherwise love the Art of your Licensed NFT for your own personal use;</p></li><li><p class="" style="white-space:pre-wrap;">commercialise your Licensed ‘Coo and the gang’ NFT by producing and selling physical merchandise that portrays the Licensed NFT’s underlying Art in its entirety;</p></li><li><p class="" style="white-space:pre-wrap;">sell or transfer your Licensed NFTs on third-party NFT trading platforms;</p></li></ul><p class="" data-rte-preserve-empty="true" style="white-space:pre-wrap;"></p><p class="" style="white-space:pre-wrap;">You have the limited right to transfer or sell your Licensed NFTs on an NFT Trading Platform such as opensea, provided that the buyer understands and accepts the terms of this Agreement prior to the transfer. </p><p class="" style="white-space:pre-wrap;">If you sell your licensed ‘coo and the gang’ NFT the license will be terminated with immediate effect and you relinquish all rights regarding the nft.</p><p class="" data-rte-preserve-empty="true" style="white-space:pre-wrap;"></p><p class="" style="white-space:pre-wrap;">We are not responsible for any transactions between you and a third party, including using any NFT Trading Platform to transfer your Licensed ‘Coo and the gang’ NFTs.  </p><p class="" style="white-space:pre-wrap;">We shall have no responsibilities or liability with respect to any transfer you enact on any third-party NFT Trading Platform.</p>
+        </div>
+      </div>
+
+      
+        <div
+          class="accordion-divider"
+          aria-hidden="true"
+          style="
+            height: 1px;
+            opacity: 1;
+          "
+        ></div>
+      
+
+    </li>
+  
+    <li class="accordion-item">
+
+      
+        
+      
+
+      <h4
+        class="
+          accordion-item__title-wrapper
+          
+          
+          
+        "
+        role="heading"
+        aria-level="3"
+      >
+        <button
+          class="accordion-item__click-target"
+          aria-expanded="false"
+          style="
+            padding-top: 30px;
+            padding-bottom: 30px;
+            padding-left: 0px;
+            padding-right: 0px;
+          "
+        >
+          <span
+            class="accordion-item__title"
+            style="
+              
+
+              
+                padding-right: 14px;
+              
+            "
+          >
+            TERMS AND CONDITIONS - MUST READ (BORING BUT IMPORTANT SH%!)
+          </span>
+          <div
+            class="accordion-icon-container"
+            data-is-open="false"
+            aria-hidden="true"
+            style="
+              height: 14px;
+              width: 14px;
+            "
+          >
+            
+              <div class="plus">
+                <div
+                  class="plus__horizontal-line"
+                  style="height: 1px"
+                ></div>
+                <div
+                  class="plus__vertical-line"
+                  style="height: 1px"
+                ></div>
+              </div>
+            
+          </div>
+        </button>
+      </h4>
+      <div class="accordion-item__dropdown" role="region">
+        <div
+          class="
+            accordion-item__description
+            
+            
+            
+          "
+          style="
+            padding-top: 0px;
+            padding-bottom: 30px;
+            padding-left: 0px;
+            padding-right: 0px;
+
+            
+            
+            min-width: 70%;
+            max-width: 300px;
+          "
+        >
+          <p class="" style="white-space:pre-wrap;"><strong>USING THIS WEBSITE</strong></p><p class="" style="white-space:pre-wrap;">By using, connecting your wallet to and otherwise interacting with this website, you accept that you are entering into a contract with us under these Terms.  All users or visitors of our website and app agree that their access to and use of it are subject to the terms and conditions set forth in this legal notice and to all applicable laws, and that any such access or use is undertaken at the user’s own risk. </p><p class="" style="white-space:pre-wrap;">These terms and conditions may be changed at any time without prior notice to you and you are strongly advised to check the current terms and conditions each time you interact with our website.</p><p class="" style="white-space:pre-wrap;">This website is operated by Coo and the gang.</p><p class="" data-rte-preserve-empty="true" style="white-space:pre-wrap;"></p><p class="" style="white-space:pre-wrap;"><strong>Copyright &amp; IP</strong></p><p class="" style="white-space:pre-wrap;">The copyright in this website belongs to Coo and the Gang and will at all times remain with us. You may access this website for your own non commercial use only. You may not copy, publish, modify, transfer, create derivative works from, commercially exploit or otherwise use in whole or part any of the content on this website.</p><p class="" style="white-space:pre-wrap;">You may not delete or alter in any way any copyright, trade mark, intellectual property or other legal notices from any part of this website.</p><p class="" data-rte-preserve-empty="true" style="white-space:pre-wrap;"></p><p class="" style="white-space:pre-wrap;"><strong>Security &amp; Privacy</strong></p><p class="" style="white-space:pre-wrap;">At Coo and the Gang, we take care to protect your privacy and secure your information.</p><p class="" style="white-space:pre-wrap;">You agree to accept responsibility for all activities that occur under your Wallet, account or password. You should take all necessary steps to ensure that the password or seed phrase is kept confidential and secure.</p><p class="" data-rte-preserve-empty="true" style="white-space:pre-wrap;"></p><p class="" style="white-space:pre-wrap;">Coo and the gang, reserves the right to refuse access to the website or app, terminate accounts, remove or edit content.</p><p class="" data-rte-preserve-empty="true" style="white-space:pre-wrap;"></p><p class="" style="white-space:pre-wrap;">We will do our utmost to ensure that availability of the website will be uninterrupted and that transmissions will be error-free. However, due to the nature of the Internet, this cannot be guaranteed. Also, your access to the website may also be occasionally suspended or restricted to allow for repairs, maintenance, or the introduction of new facilities or services. We will attempt to limit the frequency and duration of any such suspension or restriction.</p><p class="" data-rte-preserve-empty="true" style="white-space:pre-wrap;"></p><p class="" style="white-space:pre-wrap;">You agree and understand that the Licensed ‘Coo and the Gang’ NFTs are made for entertainment purposes only. You agree and understand that: </p><p class="" data-rte-preserve-empty="true" style="white-space:pre-wrap;"></p><ul data-rte-list="default"><li><p class="" style="white-space:pre-wrap;">the NFT market and prices are extremely volatile, and fluctuations in the price of blockchain assets or crypto currency could adversely affect the price of your Licensed ‘Coo and the gang’ NFT. Your licensed ‘Coo and the gang’ NFT has no inherent or intrinsic value;</p><p class="" data-rte-preserve-empty="true" style="white-space:pre-wrap;"></p><p class="" data-rte-preserve-empty="true" style="white-space:pre-wrap;"></p></li><li><p class="" style="white-space:pre-wrap;">You take accept all responsibility and risks relating to taxation, loss of crypto or blockchain assets through malicous software, scams, phihings or human error.</p><p class="" data-rte-preserve-empty="true" style="white-space:pre-wrap;"></p></li><li><p class="" style="white-space:pre-wrap;">You agree that any participation in NFTs, blockchain or crypto currency is solely based on your own free decision and no content on our website or social media should be deemed as financial advise or otherwise.</p><p class="" data-rte-preserve-empty="true" style="white-space:pre-wrap;"></p></li></ul><p class="" data-rte-preserve-empty="true" style="white-space:pre-wrap;"></p><p class="" style="white-space:pre-wrap;"><strong>Limitation of Liability</strong></p><p class="" style="white-space:pre-wrap;">ALL LICENSED NFTS ARE PROVIDED “AS IS” AND “AS AVAILABLE” WITHOUT WARRANTIES OF ANY KIND EITHER EXPRESS OR IMPLIED. </p>
+        </div>
+      </div>
+
+      
+        <div
+          class="accordion-divider"
+          aria-hidden="true"
+          style="
+            height: 1px;
+            opacity: 1;
+          "
+        ></div>
+      
+
+    </li>
+  
+</ul>
+</div></div><div class="sqs-block html-block sqs-block-html" data-block-type="2" id="block-yui_3_17_2_1_1655593387583_11859"><div class="sqs-block-content"><p class="" data-rte-preserve-empty="true" style="white-space:pre-wrap;"></p><h2 style="text-align:center;white-space:pre-wrap;"><strong><em>🐦 #STAYCOO</em></strong></h2>
+
+
+</div></div></div></div></div>
+    </div>
+  </div>
+  
+</section>
+
+  
+    <section
+  data-test="page-section"
+  
+  data-section-theme=""
+  class='page-section
+    
+      layout-engine-section
+    
+    background-width--full-bleed
+    
+      section-height--small
+    
+    
+      content-width--medium
+    
+    horizontal-alignment--left
+    vertical-alignment--middle
+    
+      
+    
+    
+    '
+  
+  data-section-id="62ae02c2634bae6c07be492a"
+  
+  data-controller="SectionWrapperController"
+  data-current-styles="{
+  &quot;imageOverlayOpacity&quot;: 0.15,
+  &quot;backgroundWidth&quot;: &quot;background-width--full-bleed&quot;,
+  &quot;sectionHeight&quot;: &quot;section-height--small&quot;,
+  &quot;customSectionHeight&quot;: 10,
+  &quot;horizontalAlignment&quot;: &quot;horizontal-alignment--left&quot;,
+  &quot;verticalAlignment&quot;: &quot;vertical-alignment--middle&quot;,
+  &quot;contentWidth&quot;: &quot;content-width--medium&quot;,
+  &quot;customContentWidth&quot;: 50,
+  &quot;sectionTheme&quot;: &quot;&quot;,
+  &quot;sectionAnimation&quot;: &quot;none&quot;,
+  &quot;backgroundMode&quot;: &quot;image&quot;
+}"
+  data-animation="none"
+   
+  
+    
+  
+  
+>
+  <div class="section-background">
+  
+    
+  
+  </div>
+  <div
+    class="content-wrapper"
+    style="">
+    <div
+      class="content"
+      
+    >
+      
+      
+      
+      
+      <div class="sqs-layout sqs-grid-12 columns-12" data-type="page-section" id="page-section-62ae02c2634bae6c07be492a"><div class="row sqs-row"><div class="col sqs-col-12 span-12"><div class="sqs-block html-block sqs-block-html" data-block-type="2" id="block-63598631e8b8bf06eed5"><div class="sqs-block-content"><h1 style="white-space:pre-wrap;"><a href="mailto:email@example.com">Get in Touch﻿ →</a></h1>
+
+
+</div></div></div></div></div>
+    </div>
+  </div>
+  
+</section>
 
     <div id="spinner" class="dot-spin"></div>
 
