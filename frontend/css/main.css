@@ -3154,9 +3154,15 @@ input, select, textarea {
 			white-space: nowrap;
 		}
 
-			#header h1 a {
-				font-size: 0.7em;
-			}
+		#header h1 a {
+			font-size: 2rem;
+			font-family: scheme;
+			font-weight: 400;
+			font-style: normal;
+			letter-spacing: 0em;
+			text-transform: none;
+			line-height: 1.3em;
+		}
 
 		#header .links {
 			-moz-flex: 1;
