@@ -7,7 +7,7 @@ const { NETWORK } = require(`${basePath}/constants/network.js`);
 const network = NETWORK.eth;
 
 // General metadata for Ethereum
-const namePrefix = "YOUR COLLECTION NAME";
+const namePrefix = "Coo and the Gang";
 const description = "Remember to replace this description";
 const baseUri = "ipfs://NewUriToReplace"; // This will be replaced automatically
 
@@ -38,7 +38,7 @@ const format = {
 };
 
 const extraMetadata = {
-  external_url: "https://codecats.xyz", // Replace with your website or remove this line if you do not have one.
+  external_url: "https://www.cooandthegang.io", // Replace with your website or remove this line if you do not have one.
 };
 
 // NFTPort Info
@@ -49,8 +49,8 @@ const LIMIT = 2; // Your API key rate limit
 const CHAIN = 'rinkeby'; // only rinkeby or polygon
 
 // REQUIRED CONTRACT DETAILS THAT CANNOT BE UPDATED LATER!
-const CONTRACT_NAME = 'CRYPTOPUNKS';
-const CONTRACT_SYMBOL = 'CP';
+const CONTRACT_NAME = 'Coo and the Gang';
+const CONTRACT_SYMBOL = 'CG';
 const METADATA_UPDATABLE = true; // set to false if you don't want to allow metadata updates after minting
 const OWNER_ADDRESS = '0x681dD555e34b39C091A4a3F762B0AD5BBfA51577';
 const TREASURY_ADDRESS = '0x681dD555e34b39C091A4a3F762B0AD5BBfA51577';
@@ -59,7 +59,7 @@ const MINT_PRICE = 0; // Minting price per NFT. Rinkeby = ETH, Polygon = MATIC. 
 const TOKENS_PER_MINT = 2; // maximum number of NFTs a user can mint in a single transaction. CANNOT BE UPDATED!
 
 // REQUIRED CONTRACT DETAILS THAT CAN BE UPDATED LATER.
-const PUBLIC_MINT_START_DATE = "2022-03-20T11:30:48+00:00"; // This is required. Eg: 2022-02-08T11:30:48+00:00
+const PUBLIC_MINT_START_DATE = "2022-07-01T09:00:00+00:00"; // This is required. Eg: 2022-02-08T11:30:48+00:00
 
 // OPTIONAL CONTRACT DETAILS THAT CAN BE UPDATED LATER.
 const PRESALE_MINT_START_DATE = null; // Optional. Eg: 2022-02-08T11:30:48+00:00
@@ -71,11 +71,11 @@ const PRESALE_WHITELISTED_ADDRESSES = []; // only update if you want to manually
 
 // ** OPTIONAL **
 let CONTRACT_ADDRESS = "YOUR CONTRACT ADDRESS"; // If you want to manually include it
-s
+
 // Generic Metadata is optional if you want to reveal your NFTs
 const GENERIC = true; // Set to true if you want to upload generic metas and reveal the real NFTs in the future
 const GENERIC_TITLE = CONTRACT_NAME; // Replace with what you want the generic titles to say if you want it to be different from the contract name.
-const GENERIC_DESCRIPTION = "Unknown"; // Replace with what you want the generic descriptions to say.
+const GENERIC_DESCRIPTION = "Unknown Coo and the Gang"; // Replace with what you want the generic descriptions to say.
 const GENERIC_IMAGE = "https://ipfs.io/ipfs/QmUf9tDbkqnfHkQaMdFWSGAeXwVXWA61pFED7ypx4hcsfh"; // Replace with your generic image that will display for all NFTs pre-reveal.
 
 // Automatically set contract address if deployed using the deployContract.js script
@@ -91,18 +91,6 @@ try {
   // Do nothing, falling back to manual contract address
 }
 // END NFTPort Info
-
-const solanaMetadata = {
-  symbol: "YC",
-  seller_fee_basis_points: 1000, // Define how much % you want from secondary market sales 1000 = 10%
-  external_url: "https://www.youtube.com/c/hashlipsnft",
-  creators: [
-    {
-      address: "7fXNuer5sbZtaTEPhtJ5g5gNtuyRoKkvxdjEjEnPN4mC",
-      share: 100,
-    },
-  ],
-};
 
 const gif = {
   export: false,
@@ -171,7 +159,6 @@ module.exports = {
   text,
   namePrefix,
   network,
-  solanaMetadata,
   gif,
   preview_gif,
   AUTH,
