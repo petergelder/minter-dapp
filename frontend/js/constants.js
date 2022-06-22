@@ -1,9 +1,9 @@
 const contractAddress = "0xdbc59e0364ad00d96A1110A18031DC41E710d874"; //Replace with your own contract address
 const chain = 'rinkeby'; // rinkeby or polygon
 
-const welcome_h1 = "Welcome to Coo and the Gang!!";
+const welcome_h1 = "Welcome to Raffy and Ruby!!";
 const welcome_h2 = "Connect to MetaMask to Get Started";
-const welcome_p = 'The Coo and the Gang NFT Project is a decentralized, open-source project that aims to demonstrate how to develope and launch your own NFT Collection.';
+const welcome_p = 'The Raffy and Ruby NFT Project is a decentralized, open-source project that aims to demonstrate how to develope and launch your own NFT Collection.';
 const h1_presale_coming_soon = "NFT Drop Coming Soon!!";
 const h1_presale_mint = "Pre-Sale Minting Open!!";
 const h1_public_mint = "Public Minting Open!!";
