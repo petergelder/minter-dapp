@@ -31,6 +31,8 @@ footer, header, hgroup, menu, nav, section {
 
 body {
 	line-height: 1;
+	margin: 0;
+	display: block;
 }
 
 ol, ul {
@@ -72,6 +74,117 @@ input, select, textarea {
 	appearance: none;
 }
 
+#marquee_div{
+	overflow: hidden;
+	white-space: nowrap;
+	width: 60%;
+	margin: 0 auto;
+	font-size: 2.3rem;
+	padding-bottom: 20%;
+	font-family: "Concert One", Helvetica, sans-serif;
+	color: black;
+  }
+  
+  #text1 {
+	display: inline-block;
+	animation: marquee 6s linear infinite;
+  }
+  
+  #text2 {
+	display: inline-block;
+	animation: marquee2 6s linear infinite;
+	animation-delay: 3s;
+  }
+  
+  @keyframes marquee {
+	from {
+	  transform: translateX(120%);
+	}
+	to {
+	  transform: translateX(-100%);
+	}
+  }
+  
+  @keyframes marquee2 {
+	from {
+	  transform: translateX(20%);
+	}
+	to {
+	  transform: translateX(-200%);
+	}
+  }
+
+  /* Style the buttons that are used to open and close the accordion panel */
+.accordion {
+	color: #444;
+	cursor: pointer;
+	padding: 12px;
+	width: 100%;
+	text-align: left;
+	border: none;
+	border-top: black 1px solid;
+	border-bottom: black 1px solid;
+	outline: none;
+	transition: 0.4s;
+	font-size: 1.1rem;
+	font-weight: 200;
+	box-shadow: none;
+  }
+
+  .active, .accordion:hover {
+	box-shadow: none;
+	color: #444 !important;
+  }
+  
+  /* Style the accordion panel. Note: hidden by default */
+  .panel {
+	padding: 0 18px;
+	display: none;
+	overflow: hidden;
+  }
+
+  /* Style all font awesome icons */
+.fa {
+	padding: 10px;
+	font-size: 30px !important;
+	width: 32px;
+	text-align: center;
+	text-decoration: none;
+	border-radius: 50%;
+	border: black 2px solid;
+  }
+  
+  /* Add a hover effect if you want */
+  .fa:hover {
+	opacity: 0.7;
+  }
+
+  .nav-social {
+	margin: 0 auto;
+	text-align: center;
+	padding-bottom:25.9611587524414%;
+  }
+
+  .nav-social a:hover {
+	color: black !important;
+	border-bottom-color : black !important;
+	opacity: 0.7;
+  }
+  
+  /* Set a specific color for each brand */
+  
+  /* Instagram */
+  .fa-instagram {
+	background: transparent;
+	color: black;
+  }
+  
+  /* Twitter */
+  .fa-twitter {
+	background: transparent;
+	color: black;
+  }
+
 /* Basic */
 
 	@-ms-viewport {
@@ -90,9 +203,24 @@ input, select, textarea {
 
 	}
 
-	html {
-		box-sizing: border-box;
-	}
+	#bg {
+		position: fixed; 
+		top: -50%; 
+		left: -50%; 
+		width: 200%; 
+		height: 200%;
+		z-index: -5;
+	  }
+	  #bg img {
+		position: absolute; 
+		top: 0; 
+		left: 0; 
+		right: 0; 
+		bottom: 0; 
+		margin: auto; 
+		min-width: 50%;
+		min-height: 50%;
+	  }
 
 	*, *:before, *:after {
 		box-sizing: inherit;
@@ -117,7 +245,7 @@ input, select, textarea {
 
 	body, input, select, textarea {
 		color: #646464;
-		font-family: "Source Sans Pro", Helvetica, sans-serif;
+		font-family: Helvetica, sans-serif;
 		font-size: 14pt;
 		font-weight: 400;
 		line-height: 1.75;
@@ -200,16 +328,21 @@ input, select, textarea {
 
 	p {
 		margin: 0 0 2em 0;
+		font-family: Helvetica, sans-serif;
+		font-style: italic;
+		line-height: 1.2em;
+		letter-spacing: 0.12em;
+		font-size: 1.1rem;
 	}
 
 	h1, h2, h3, h4, h5, h6 {
 		color: #3c3b3b;
-		font-family: "Raleway", Helvetica, sans-serif;
-		font-weight: 800;
-		letter-spacing: 0.25em;
-		line-height: 1.65;
+		font-family: "Concert One", Helvetica, sans-serif;
+		font-weight: 400;
+		line-height: 1.3;
 		margin: 0 0 1em 0;
 		text-transform: uppercase;
+		text-align: center;
 	}
 
 		h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
@@ -218,15 +351,15 @@ input, select, textarea {
 		}
 
 	h2 {
-		font-size: 1.1em;
+		font-size: 2em;
 	}
 
 	h3 {
-		font-size: 0.9em;
+		font-size: 2em;
 	}
 
 	h4 {
-		font-size: 0.7em;
+		font-size: 1.2em;
 	}
 
 	h5 {
@@ -1873,7 +2006,7 @@ input, select, textarea {
 		color: #3c3b3b !important;
 		cursor: pointer;
 		display: inline-block;
-		font-family: "Raleway", Helvetica, sans-serif;
+		font-family: "Concert One", Helvetica, sans-serif;
 		font-size: 0.6em;
 		font-weight: 800;
 		height: 4.8125em;
@@ -2733,11 +2866,9 @@ input, select, textarea {
 /* Post */
 
 	.post {
-		padding: 3em 3em 1em 3em ;
-		background: #ffffff;
-		border: solid 1px rgba(160, 160, 160, 0.3);
 		margin: 0 0 3em 0;
 		position: relative;
+		padding-bottom: 20%;
 	}
 
 		.post > header {
@@ -2745,9 +2876,7 @@ input, select, textarea {
 			display: -webkit-flex;
 			display: -ms-flex;
 			display: flex;
-			border-bottom: solid 1px rgba(160, 160, 160, 0.3);
 			left: -3em;
-			margin: -3em 0 3em 0;
 			position: relative;
 			width: calc(100% + 6em);
 		}
@@ -2758,7 +2887,6 @@ input, select, textarea {
 				-ms-flex-grow: 1;
 				flex-grow: 1;
 				-ms-flex: 1;
-				padding: 3.75em 3em 3.3em 3em;
 			}
 
 				.post > header .title h2 {
@@ -2771,11 +2899,12 @@ input, select, textarea {
 				}
 
 			.post > header .meta {
-				padding: 3.75em 3em 1.75em 3em ;
-				border-left: solid 1px rgba(160, 160, 160, 0.3);
-				min-width: 17em;
-				text-align: right;
-				width: 17em;
+				min-height: 100%;
+				min-width: 24em;
+				text-align: center;
+				width: 24em;
+				margin: auto;
+  				top: 50%;
 			}
 
 				.post > header .meta > * {
@@ -3108,10 +3237,6 @@ input, select, textarea {
 
 /* Header */
 
-	body {
-		padding-top: 3.5em;
-	}
-
 	#header {
 		display: -moz-flex;
 		display: -webkit-flex;
@@ -3319,23 +3444,15 @@ input, select, textarea {
 /* Wrapper */
 
 	#wrapper {
-		display: -moz-flex;
-		display: -webkit-flex;
-		display: -ms-flex;
 		display: flex;
-		-moz-flex-direction: row-reverse;
-		-webkit-flex-direction: row-reverse;
-		-ms-flex-direction: row-reverse;
-		flex-direction: row-reverse;
-		-moz-transition: opacity 0.5s ease;
-		-webkit-transition: opacity 0.5s ease;
-		-ms-transition: opacity 0.5s ease;
+		flex-direction: column;
 		transition: opacity 0.5s ease;
 		margin: 0 auto;
 		max-width: 100%;
 		opacity: 1;
 		padding: 4.5em;
 		width: 90em;
+		min-height: 100vh;
 	}
 
 		body.is-menu-visible #wrapper {
@@ -3379,6 +3496,7 @@ input, select, textarea {
 		flex-grow: 1;
 		-ms-flex: 1;
 		width: 100%;
+		margin: 0 auto;
 	}
 
 /* Sidebar */
@@ -3498,6 +3616,10 @@ input, select, textarea {
 
 /* Footer */
 
+	#footer {
+		margin: 0 auto;
+	}
+
 	#footer .icons {
 		color: #aaaaaa;
 	}
@@ -3505,7 +3627,7 @@ input, select, textarea {
 	#footer .copyright {
 		color: #aaaaaa;
 		font-family: "Raleway", Helvetica, sans-serif;
-		font-size: 0.5em;
+		font-size: 0.7em;
 		font-weight: 400;
 		letter-spacing: 0.25em;
 		text-transform: uppercase;
