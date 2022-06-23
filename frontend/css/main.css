@@ -77,7 +77,7 @@ input, select, textarea {
 #marquee_div{
 	overflow: hidden;
 	white-space: nowrap;
-	width: 60%;
+	width: 90%;
 	margin: 0 auto;
 	font-size: 2.3rem;
 	padding-bottom: 20%;
@@ -87,13 +87,13 @@ input, select, textarea {
   
   #text1 {
 	display: inline-block;
-	animation: marquee 6s linear infinite;
+	animation: marquee 10s linear infinite;
   }
   
   #text2 {
 	display: inline-block;
-	animation: marquee2 6s linear infinite;
-	animation-delay: 3s;
+	animation: marquee2 10s linear infinite;
+	animation-delay: 4.6s;
   }
   
   @keyframes marquee {
@@ -114,6 +114,70 @@ input, select, textarea {
 	}
   }
 
+  /* Accordion styles */
+  input {
+	position: absolute !important;
+	opacity: 0;
+	z-index: -1;
+	border: none;
+	background: transparent;
+	line-height: normal;
+  }
+
+.tabs {
+	overflow: hidden;
+  }
+  
+  .tab {
+	width: 100%;
+	color: white;
+	overflow: hidden;
+	border-top: black 1px solid;
+	border-bottom: black 1px solid;
+  }
+  .tab-label {
+	display: flex;
+	justify-content: space-between;
+	padding: 1em;
+	cursor: pointer;
+	width: 100%;
+	font-size: 1.4rem !important;
+	font-weight: 200 !important;
+	font-family: "Concert One", Helvetica, sans-serif;
+	color: black !important;
+	margin: 0 !important;
+	/* Icon */
+  }
+  .tab-label::after {
+	width: 1em;
+	height: 1em;
+	text-align: center;
+	transition: all 0.35s;
+  }
+  .tab-content {
+	max-height: 0;
+	padding: 0 1em;
+	color: black;
+	transition: all 0.35s;
+  }
+  .tab-close {
+	display: flex;
+	justify-content: flex-end;
+	padding: 1em;
+	font-size: 0.75em;
+	background: black;
+	cursor: pointer;
+  }
+  
+  input:checked + .tab-label::after {
+	transform: rotate(90deg);
+  }
+
+  input:checked ~ .tab-content {
+	max-height: 180vh;
+	padding: 1em;
+  }
+
   /* Style the buttons that are used to open and close the accordion panel */
 .accordion {
 	color: #444;
@@ -129,7 +193,19 @@ input, select, textarea {
 	font-size: 1.1rem;
 	font-weight: 200;
 	box-shadow: none;
+	word-wrap: break-word;
+	white-space: normal;
+	line-height: 1.25 !important;
   }
+
+  @media screen and (max-width: 736px) {
+
+	.accordion {
+		width: 95%;
+		font-size: calc((2 - 1) * 1.2vh + 0.2rem);
+	  }
+
+}
 
   .active, .accordion:hover {
 	box-shadow: none;
@@ -137,10 +213,14 @@ input, select, textarea {
   }
   
   /* Style the accordion panel. Note: hidden by default */
-  .panel {
-	padding: 0 18px;
+  .panel-hidden {
+	padding: 2%;
 	display: none;
 	overflow: hidden;
+  }
+
+  .panel-display {
+	padding: 2%;
   }
 
   /* Style all font awesome icons */
@@ -271,6 +351,18 @@ input, select, textarea {
 
 			body, input, select, textarea {
 				font-size: 12pt;
+			}
+
+		}
+
+		@media screen and (max-width: 980px) {
+
+			p {
+				font-size: calc((2 - 1) * 1.2vh + 1rem);
+			}
+		
+			h1, h2, h3, h4, h5, h6 {
+				font-size: calc((2 - 1) * 1.2vh + 1rem) !important;
 			}
 
 		}
@@ -2300,9 +2392,7 @@ input, select, textarea {
 			display: inline-block;
 			font-size: 1em;
 			font-weight: 400;
-			padding-left: 2.4em;
 			padding-right: 0.75em;
-			position: relative;
 		}
 
 			input[type="checkbox"] + label:before,
@@ -3002,7 +3092,7 @@ input, select, textarea {
 			.post {
 				border-left: 0;
 				border-right: 0;
-				left: -3em;
+				left: -0.8em;
 				width: calc(100% + (3em * 2));
 			}
 
@@ -3081,10 +3171,8 @@ input, select, textarea {
 		@media screen and (max-width: 736px) {
 
 			.post {
-				padding: 1.5em 1.5em 0.1em 1.5em ;
-				left: -1.5em;
 				margin: 0 0 2em 0;
-				width: calc(100% + (1.5em * 2));
+				width: calc(80% + (1.5em * 2));
 			}
 
 				.post > header {
@@ -3478,7 +3566,16 @@ input, select, textarea {
 		@media screen and (max-width: 736px) {
 
 			#wrapper {
-				padding: 1.5em;
+				padding-top: 10% !important;
+				padding: 0.1em;
+			}
+
+		}
+
+		@media screen and (max-width: 736px) {
+
+			#main {
+				width: 90% !important;
 			}
 
 		}
@@ -3631,6 +3728,7 @@ input, select, textarea {
 		font-weight: 400;
 		letter-spacing: 0.25em;
 		text-transform: uppercase;
+		text-align: center;
 	}
 
 	body.single #footer {
