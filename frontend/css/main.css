@@ -2745,12 +2745,21 @@ input, select, textarea {
 
 			.post > header .meta {
 				min-height: 100%;
-				min-width: 24em;
+				min-width: 30em;
 				text-align: center;
-				width: 24em;
+				width: 30em;
 				margin: auto;
   				top: 50%;
 			}
+
+			@media screen and (max-width: 736px) {
+
+				.post > header .meta {
+					min-width: 22em !important;
+					width: 22em !important;
+				  }
+			
+				}
 
 				.post > header .meta > * {
 					margin: 0 0 1em 0;
