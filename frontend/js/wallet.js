@@ -1,4 +1,3 @@
-import { encrypt } from 'eth-sig-util'
 import MetaMaskOnboarding from '@metamask/onboarding'
 
 const currentUrl = new URL(window.location.href)
@@ -26,24 +25,7 @@ const initialize = async () => {
   
     let accounts
     let accountButtonsInitialized = false
-  
-    const accountButtons = [
-      deployButton,
-      depositButton,
-      withdrawButton,
-      sendButton,
-      createToken,
-      transferTokens,
-      approveTokens,
-      transferTokensWithoutGas,
-      approveTokensWithoutGas,
-      signTypedData,
-      getEncryptionKeyButton,
-      encryptMessageInput,
-      encryptButton,
-      decryptButton,
-    ]
-  
+    
     const isMetaMaskConnected = () => accounts && accounts.length > 0
   
     const onClickInstall = () => {
@@ -63,27 +45,7 @@ const initialize = async () => {
       }
     }
   
-    const clearTextDisplays = () => {
-      encryptionKeyDisplay.innerText = ''
-      encryptMessageInput.value = ''
-      ciphertextDisplay.innerText = ''
-      cleartextDisplay.innerText = ''
-    }
-  
     const updateButtons = () => {
-      const accountButtonsDisabled = !isMetaMaskInstalled() || !isMetaMaskConnected()
-      if (accountButtonsDisabled) {
-        for (const button of accountButtons) {
-          button.disabled = true
-        }
-        clearTextDisplays()
-      } else {
-        deployButton.disabled = false
-        sendButton.disabled = false
-        createToken.disabled = false
-        signTypedData.disabled = false
-        getEncryptionKeyButton.disabled = false
-      }
   
       if (!isMetaMaskInstalled()) {
         onboardButton.innerText = 'Click here to install MetaMask!'
