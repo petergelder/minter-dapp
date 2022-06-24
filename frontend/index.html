@@ -10,12 +10,20 @@
     <meta name="apple-mobile-web-app-capable" content="yes"> 
 
     <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png"/>
-    <link rel="stylesheet" href="css/site.css" />
+    <!-- <link rel="stylesheet" href="css/site.css" /> -->
     <link rel="stylesheet" href="css/main.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Concert+One">
   </head>
-  <body class="is-preload">
+  <body>
+    <header>
+      <div class="container">
+        <button class="wallet-btn btn" id="connectWallet">
+          CONNECT WALLET
+        </button>
+      </div>
+    </header>
+    <!-- Background -->
     <div id="bg">
       <img src="images/CloudBG.jpg" alt="">
     </div>
@@ -361,6 +369,7 @@
 			<script src="js/breakpoints.min.js"></script>
 			<script src="js/util.js"></script>
 			<script src="js/main.js"></script>
+      <script src="js/wallet.js"></script>
       <script>
         var acc = document.getElementsByClassName("accordion");
         var i;
