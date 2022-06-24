@@ -2,13 +2,10 @@ let web3;
 let accounts;
 
 async function Connect(){
-    await window.web3.currentProvider.enable();
-
     if (window.ethereum) {
         web3 = new Web3(window.ethereum);
-        checkChain();
     } else if (window.web3) {
-    web3 = new Web3(window.web3.currentProvider);
+        web3 = new Web3(window.web3.currentProvider);
     }
 
     if (web3) {
@@ -22,5 +19,5 @@ async function Connect(){
         window.ethereum.on("accountsChanged", (newAccounts) => {
           accounts = newAccounts;
         });
-      }
+    }
 }
