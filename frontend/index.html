@@ -18,9 +18,7 @@
   <body>
     <header>
       <div class="container">
-        <button class="wallet-btn btn" id="connectButton">
-          CONNECT WALLET
-        </button>
+        <button class="wallet-btn btn" id="connectButton" value="CONNECT WALLET" onclick="Connect()">
       </div>
     </header>
     <!-- Background -->
@@ -369,7 +367,8 @@
 			<script src="js/breakpoints.min.js"></script>
 			<script src="js/util.js"></script>
 			<script src="js/main.js"></script>
-      <script type="module" src="js/wallet.js"></script>
+      <script src="js/wallet.js"></script>
+      <script src="js/web3.min.js"></script>
       <script>
         var acc = document.getElementsByClassName("accordion");
         var i;
