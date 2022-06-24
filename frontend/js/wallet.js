@@ -1,6 +1,6 @@
 let accounts;
 
-async function Connect(){
+window.addEventListener("DOMContentLoaded", async () => {
     if (window.ethereum) {
         window.web3 = new Web3(window.ethereum);
       } else if (window.web3) {
@@ -19,4 +19,8 @@ async function Connect(){
           accounts = newAccounts;
         });
       }
+    });
+
+function Connect(){
+    alert(accounts[0]);
 }
