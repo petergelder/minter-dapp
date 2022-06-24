@@ -2,13 +2,6 @@ let accounts;
 
 // METAMASK CONNECTION
 window.addEventListener("DOMContentLoaded", async () => {
-  const welcomeH1 = document.getElementById("welcomeH1");
-  const welcomeH2 = document.getElementById("welcomeH2");
-  const welcomeP = document.getElementById("welcomeP");
-
-  welcomeH1.innerText = welcome_h1;
-  welcomeH2.innerText = welcome_h2;
-  welcomeP.innerHTML = welcome_p;
 
   if (window.ethereum) {
     window.web3 = new Web3(window.ethereum);
@@ -24,20 +17,8 @@ window.addEventListener("DOMContentLoaded", async () => {
     });
   }
 
-  const splide = new Splide(".splide", {
-    type: "loop",
-    arrows: false,
-    perMove: 3,
-    pagination: false,
-    autoplay: true,
-    direction: 'ttb',
-    height: "calc(100vh - 90px)",
-    width: '30vw',
-    autoHeight: true,
-  });
-  splide.mount();
-
   updateConnectStatus();
+
   if (MetaMaskOnboarding.isMetaMaskInstalled()) {
     window.ethereum.on("accountsChanged", (newAccounts) => {
       accounts = newAccounts;
@@ -50,15 +31,14 @@ const updateConnectStatus = async () => {
   const onboarding = new MetaMaskOnboarding();
   const onboardButton = document.getElementById("connectWallet");
   const notConnected = document.querySelector('.not-connected');
-  const spinner = document.getElementById("spinner");
+
   if (!MetaMaskOnboarding.isMetaMaskInstalled()) {
     onboardButton.innerText = "Install MetaMask!";
     onboardButton.onclick = () => {
       onboardButton.innerText = "Connecting...";
       onboardButton.disabled = true;
       onboarding.startOnboarding();
-      // HIDE SPINNER
-      spinner.classList.add('hidden');
+
       notConnected.classList.remove('hidden');
       notConnected.classList.add('show-not-connected');
     };
@@ -69,14 +49,12 @@ const updateConnectStatus = async () => {
     onboarding.stopOnboarding();
     notConnected.classList.remove('show-not-connected');
     notConnected.classList.add('hidden');
-    // SHOW SPINNER
-    spinner.classList.remove('hidden');
+
     window.contract = new web3.eth.Contract(abi, contractAddress);
     loadInfo();
   } else {
     onboardButton.innerText = "Connect MetaMask!";
-    // HIDE SPINNER
-    spinner.classList.add('hidden');
+
     notConnected.classList.remove('hidden');
     notConnected.classList.add('show-not-connected');
     onboardButton.onclick = async () => {
@@ -88,8 +66,7 @@ const updateConnectStatus = async () => {
           onboardButton.innerText = `✔ ...${accts[0].slice(-4)}`;
           notConnected.classList.remove('show-not-connected');
           notConnected.classList.add('hidden');
-          // SHOW SPINNER
-          spinner.classList.remove('hidden');
+
           onboardButton.disabled = true;
           window.address = accts[0];
           accounts = accts;
@@ -212,7 +189,7 @@ async function loadInfo() {
   countdown();
 
   // HIDE SPINNER
-  spinner.classList.add('hidden');
+  // spinner.classList.add('hidden');
 
   // SHOW CARD
   setTimeout(() => {
