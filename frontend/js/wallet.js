@@ -1,3 +1,18 @@
+import { encrypt } from 'eth-sig-util'
+import MetaMaskOnboarding from '@metamask/onboarding'
+
+const currentUrl = new URL(window.location.href)
+const forwarderOrigin = currentUrl.hostname === 'localhost'
+  ? 'http://localhost:9010'
+  : undefined
+
+const isMetaMaskInstalled = () => {
+  const { ethereum } = window
+  return Boolean(ethereum && ethereum.isMetaMask)
+}
+
+const onboardButton = document.getElementById('connectButton')
+
 window.addEventListener('DOMContentLoaded', initialize)
 
 const initialize = async () => {
