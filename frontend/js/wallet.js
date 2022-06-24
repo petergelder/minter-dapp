@@ -1,4 +1,5 @@
 let accounts;
+const onboarding = new MetaMaskOnboarding();
 
 window.addEventListener("DOMContentLoaded", async () => {
     if (window.ethereum) {
@@ -19,8 +20,18 @@ window.addEventListener("DOMContentLoaded", async () => {
           accounts = newAccounts;
         });
       }
+      else {
+        onboarding.startOnboarding()
+      }
     });
 
-function Connect(){
-    alert(accounts[0]);
-}
+    const onClickConnect = async () => {
+        try {
+          const newAccounts = await ethereum.request({
+            method: 'eth_requestAccounts',
+          })
+          handleNewAccounts(newAccounts)
+        } catch (error) {
+          console.error(error)
+        }
+      }
