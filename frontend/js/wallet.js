@@ -20,6 +20,37 @@ async function Connect(){
   const onboardButton = document.getElementById("connectButton");
 
   if (!MetaMaskOnboarding.isMetaMaskInstalled()) {
-      onboarding.startOnboarding();
-    };
+    onboardButton.innerText = "Install MetaMask!";
+    onboardButton.onclick = () => {
+        onboardButton.innerText = "Connecting...";
+        onboardButton.disabled = true;
+        onboarding.startOnboarding();
+      };
+    } else if (accounts && accounts.length > 0) {
+        onboardButton.innerText = `✔ ...${accounts[0].slice(-4)}`;
+        window.address = accounts[0];
+        onboardButton.disabled = true;
+        onboarding.stopOnboarding();
+    
+        window.contract = new web3.eth.Contract(abi, contractAddress);
+
+      } else {
+        onboardButton.innerText = "Connect MetaMask!";
+    
+        onboardButton.onclick = async () => {
+          await window.ethereum
+            .request({
+              method: "eth_requestAccounts",
+            })
+            .then(function (accts) {
+              onboardButton.innerText = `✔ ...${accts[0].slice(-4)}`;
+    
+              onboardButton.disabled = true;
+              window.address = accts[0];
+              accounts = accts;
+              window.contract = new web3.eth.Contract(abi, contractAddress);
+
+            });
+        };
+      };
 }
