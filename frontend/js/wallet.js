@@ -3,7 +3,6 @@ let accounts;
 async function Connect(){
     if (window.ethereum) {
         window.web3 = new Web3(window.ethereum);
-        checkChain();
       } else if (window.web3) {
         window.web3 = new Web3(window.web3.currentProvider);
       }
@@ -15,12 +14,9 @@ async function Connect(){
         });
       }
     
-      updateConnectStatus();
-    
       if (MetaMaskOnboarding.isMetaMaskInstalled()) {
         window.ethereum.on("accountsChanged", (newAccounts) => {
           accounts = newAccounts;
-          updateConnectStatus();
         });
       }
 }
