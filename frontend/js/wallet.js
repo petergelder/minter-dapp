@@ -1,5 +1,4 @@
 let accounts;
-const onboarding = new MetaMaskOnboarding();
 
 window.addEventListener("DOMContentLoaded", async () => {
     if (window.ethereum) {
@@ -14,24 +13,13 @@ window.addEventListener("DOMContentLoaded", async () => {
           accounts = addr;
         });
       }
-    
-      if (MetaMaskOnboarding.isMetaMaskInstalled()) {
-        window.ethereum.on("accountsChanged", (newAccounts) => {
-          accounts = newAccounts;
-        });
-      }
-      else {
-        onboarding.startOnboarding()
-      }
     });
 
-    const onClickConnect = async () => {
-        try {
-          const newAccounts = await ethereum.request({
-            method: 'eth_requestAccounts',
-          })
-          handleNewAccounts(newAccounts)
-        } catch (error) {
-          console.error(error)
-        }
-      }
+async function Connect(){
+  const onboarding = new MetaMaskOnboarding();
+  const onboardButton = document.getElementById("connectButton");
+
+  if (!MetaMaskOnboarding.isMetaMaskInstalled()) {
+      onboarding.startOnboarding();
+    };
+}
