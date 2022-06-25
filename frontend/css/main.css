@@ -276,13 +276,15 @@ input, select, textarea {
 	font-weight: bold;
 	font-size: 1rem;
 	text-align: center;
-	text-transform: capitalize;
+	vertical-align: middle;
+	text-transform: uppercase;
+	line-height: normal !important;
 	transition: all 0.3s ease;
 	box-shadow: var(--header-shadow);
 	cursor: pointer;
 	text-decoration: none;
 	outline: none;
-	width: 11em;
+	width: 15em;
 	height: 3em;
 	float: right;
 	font-family: "Concert One", Helvetica, sans-serif;

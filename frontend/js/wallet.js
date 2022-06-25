@@ -6,7 +6,7 @@ window.addEventListener("DOMContentLoaded", async () => {
       } else if (window.web3) {
         window.web3 = new Web3(window.web3.currentProvider);
       }
-    
+
       if (window.web3) {
         // Check if User is already connected by retrieving the accounts
         await window.web3.eth.getAccounts().then(async (addr) => {
@@ -14,6 +14,11 @@ window.addEventListener("DOMContentLoaded", async () => {
         });
       }
     });
+
+const updateConnectStatus = async () => {
+
+}
+
 
 async function Connect(){
   const onboarding = new MetaMaskOnboarding();
@@ -34,7 +39,7 @@ async function Connect(){
     
         window.contract = new web3.eth.Contract(abi, contractAddress);
 
-      } else {
+    } else {
         onboardButton.innerText = "Connect MetaMask!";
     
         onboardButton.onclick = async () => {
@@ -52,5 +57,5 @@ async function Connect(){
 
             });
         };
-      };
+    };
 }
