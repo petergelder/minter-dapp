@@ -48,7 +48,7 @@ async function Connect(){
               method: "eth_requestAccounts",
             })
             .then(function (accts) {
-              onboardButton.innerText = `✔ ...${accts[0].slice(-4)}`;
+              onboardButton.innerText = `✔ ...${accts[0]}`;
     
               onboardButton.disabled = true;
               window.address = accts[0];
