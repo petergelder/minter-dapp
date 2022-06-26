@@ -75,7 +75,7 @@ async function checkChain() {
           method: 'wallet_switchEthereumChain',
           params: [{ chainId: web3.utils.toHex(chainId) }],
         });
-        // updateConnectStatus();
+        await Connect();
       } catch (err) {
           // This error code indicates that the chain has not been added to MetaMask.
         if (err.code === 4902) {
@@ -105,7 +105,7 @@ async function checkChain() {
                 ],
               });
             }
-            // updateConnectStatus();
+            await Connect();
           } catch (err) {
             console.log(err);
           }
