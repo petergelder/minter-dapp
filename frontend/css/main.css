@@ -2282,6 +2282,78 @@ input, select, textarea {
 				color: rgba(160, 160, 160, 0.3) !important;
 			}
 
+/* COUNTDOWN SECTION */
+  
+  #countdown {
+	display: none;
+	text-align: center;
+  }
+  
+  .countdown {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+  }
+
+  .countdown p {
+	text-align: center;
+  }
+  
+  .countdown ul {
+	display: flex;
+	gap: 2rem;
+  }
+  .countdown .clock-item {
+	list-style: none;
+	width: 70px;
+	height: auto;
+  }
+  .countdown .clock-item .count-number {
+	background: var(--accent-color);
+	color: var(--font-color);
+	font-size: 2rem;
+	font-weight: 700;
+	font-family: var(--font-secondary);
+	padding: 1rem;
+	display: inline-block;
+	width: 100%;
+	text-align: center;
+	line-height: 1;
+	border-radius: 4px 4px 0 0;
+  }
+  .countdown .clock-item .count-text {
+	background: var(--btn-bg-color);
+	font-family: var(--font-secondary);
+	font-size: 1.1rem;
+	color: var(--bg-color);
+	padding: 0.5rem 0.7rem;
+	display: inline-block;
+	width: 100%;
+	text-align: center;
+	line-height: 1;
+	border-radius: 0 0 4px 4px;
+  }
+  
+  .countdown h1 {
+	text-shadow: 2px 2px 0 var(--accent-color);
+	font-style: italic;
+	margin: 2rem 0;
+	font-size: 3.5rem;
+	text-align: center;
+  }
+  
+  .countdown h2 {
+	margin-top: 1rem;
+  }
+  
+  .countdown > p {
+	font-size: 1.1rem;
+	font-family: var(--font-secondary);
+	margin-bottom: 2rem;
+	text-align: center;
+  }
+
 /* Icon */
 
 	.icon {

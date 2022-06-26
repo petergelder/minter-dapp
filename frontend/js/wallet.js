@@ -1,10 +1,12 @@
 let accounts;
 
 const onboardButton = document.getElementById("connectButton");
+const onboarding = new MetaMaskOnboarding(); 
 
 window.addEventListener("DOMContentLoaded", async () => {
     if (window.ethereum) {
         window.web3 = new Web3(window.ethereum);
+        checkChain();
       } else if (window.web3) {
         window.web3 = new Web3(window.web3.currentProvider);
       }
@@ -18,13 +20,11 @@ window.addEventListener("DOMContentLoaded", async () => {
       }
     });
 
-const updateConnectStatus = async () => {
+async function loadInfo() {
 
 }
 
-
 async function Connect(){
-  const onboarding = new MetaMaskOnboarding(); 
 
   if (!MetaMaskOnboarding.isMetaMaskInstalled()) {
     onboardButton.innerText = "Install MetaMask!";
@@ -61,3 +61,55 @@ async function Connect(){
         };
     };
 }
+
+async function checkChain() {
+    let chainId = 0;
+    if(chain === 'rinkeby') {
+      chainId = 4;
+    } else if(chain === 'polygon') {
+      chainId = 137;
+    }
+    if (window.ethereum.networkVersion !== chainId) {
+      try {
+        await window.ethereum.request({
+          method: 'wallet_switchEthereumChain',
+          params: [{ chainId: web3.utils.toHex(chainId) }],
+        });
+        // updateConnectStatus();
+      } catch (err) {
+          // This error code indicates that the chain has not been added to MetaMask.
+        if (err.code === 4902) {
+          try {
+            if(chain === 'rinkeby') {
+              await window.ethereum.request({
+                method: 'wallet_addEthereumChain',
+                params: [
+                  {
+                    chainName: 'Rinkeby Test Network',
+                    chainId: web3.utils.toHex(chainId),
+                    nativeCurrency: { name: 'ETH', decimals: 18, symbol: 'ETH' },
+                    rpcUrls: ['https://rinkeby.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161'],
+                  },
+                ],
+              });
+            } else if(chain === 'polygon') {
+              await window.ethereum.request({
+                method: 'wallet_addEthereumChain',
+                params: [
+                  {
+                    chainName: 'Polygon Mainnet',
+                    chainId: web3.utils.toHex(chainId),
+                    nativeCurrency: { name: 'MATIC', decimals: 18, symbol: 'MATIC' },
+                    rpcUrls: ['https://polygon-rpc.com/'],
+                  },
+                ],
+              });
+            }
+            // updateConnectStatus();
+          } catch (err) {
+            console.log(err);
+          }
+        }
+      }
+    }
+  }
