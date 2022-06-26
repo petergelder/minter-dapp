@@ -1,7 +1,7 @@
 let accounts;
 
 const onboardButton = document.getElementById("connectButton");
-const onboarding = new MetaMaskOnboarding(); 
+
 
 window.addEventListener("DOMContentLoaded", async () => {
     if (window.ethereum) {
@@ -15,10 +15,9 @@ window.addEventListener("DOMContentLoaded", async () => {
     // Check if User is already connected by retrieving the accounts
     await window.web3.eth.getAccounts().then(async (addr) => {
         accounts = addr;
-        
       });
     }
-    
+
     await Connect();
 });
 
@@ -27,6 +26,8 @@ async function loadInfo() {
 }
 
 async function Connect(){
+
+  const onboarding = new MetaMaskOnboarding(); 
 
   if (!MetaMaskOnboarding.isMetaMaskInstalled()) {
     onboardButton.innerText = "Install MetaMask!";
