@@ -2385,7 +2385,6 @@ input, select, textarea {
   }
   
   .mint-btn {
-	display: flex;
 	align-items: center;
 	gap: 3rem;
 	margin: auto;
