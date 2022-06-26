@@ -26,6 +26,7 @@ async function loadInfo() {
   const publicMintActive = await contract.methods.mintingActive().call();
   const presaleMintActive = await contract.methods.presaleActive().call();
   const subHeading = document.getElementById("subHeading");
+  const mainText = document.getElementById("mainText");
   const actionButton = document.getElementById("actionButton");
   const mintContainer = document.getElementById("mintContainer");
   const mintButton = document.getElementById("mintButton");
@@ -33,12 +34,35 @@ async function loadInfo() {
   let startTime = "";
   if (publicMintActive) {
     mainHeading.innerText = h1_public_mint;
+    mainText.innerText = p_public_mint;
     actionButton.classList.add('hidden');
     mintButton.innerText = button_public_mint;
     mintContainer.classList.remove('hidden');
   } else if (presaleMintActive) {
     startTime = window.info.runtimeConfig.publicMintStart;
     subHeading.innerText = h2_presale_mint;
+
+    try {
+        // CHECK IF WHITELISTED
+        const merkleData = await fetch(
+          `/.netlify/functions/merkleProof/?wallet=${window.address}&chain=${chain}&contract=${contractAddress}`
+        );
+        const merkleJson = await merkleData.json();
+        const whitelisted = await contract.methods.isWhitelisted(window.address, merkleJson).call();
+        if(!whitelisted) {
+          mainText.innerText = p_presale_mint_not_whitelisted;
+          actionButton.innerText = button_presale_mint_not_whitelisted;
+        } else {
+          mainText.innerText = p_presale_mint_whitelisted;
+          actionButton.classList.add('hidden');
+          mintButton.innerText = button_presale_mint_whitelisted;
+          mintContainer.classList.remove('hidden');
+        }
+      } catch(e) {
+        // console.log(e);
+        mainText.innerText = p_presale_mint_already_minted;
+        actionButton.innerText = button_presale_already_minted;
+      }
   }
 }
 
