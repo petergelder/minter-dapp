@@ -2268,7 +2268,6 @@ input, select, textarea {
 		.button.disabled,
 		.button:disabled {
 			pointer-events: none;
-			color: rgba(160, 160, 160, 0.3) !important;
 		}
 
 			input[type="submit"].disabled:before, input[type="submit"]:disabled:before,

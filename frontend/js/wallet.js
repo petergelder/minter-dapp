@@ -34,7 +34,7 @@ async function Connect(){
         onboarding.startOnboarding();
       };
     } else if (accounts && accounts.length > 0) {
-        onboardButton.innerText = `✔ ...${accounts[0]}`;
+        onboardButton.innerText = `✔ ...${accounts[0].slice(-8)}`;
         window.address = accounts[0];
         onboardButton.disabled = true;
         onboarding.stopOnboarding();
@@ -50,7 +50,7 @@ async function Connect(){
               method: "eth_requestAccounts",
             })
             .then(function (accts) {
-              onboardButton.innerText = `✔ ...${accts[0]}`;
+              onboardButton.innerText = `✔ ...${accts[0].slice(-8)}`;
     
               onboardButton.disabled = true;
               window.address = accts[0];
