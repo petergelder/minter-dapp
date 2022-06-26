@@ -39,6 +39,7 @@ async function loadInfo() {
   } else if (presaleMintActive) {
     startTime = window.info.runtimeConfig.publicMintStart;
     subHeading.innerText = h2_presale_mint;
+  }
 }
 
 async function Connect(){
