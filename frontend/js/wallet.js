@@ -22,7 +22,23 @@ window.addEventListener("DOMContentLoaded", async () => {
 });
 
 async function loadInfo() {
+  window.info = await window.contract.methods.getInfo().call();
+  const publicMintActive = await contract.methods.mintingActive().call();
+  const presaleMintActive = await contract.methods.presaleActive().call();
+  const subHeading = document.getElementById("subHeading");
+  const actionButton = document.getElementById("actionButton");
+  const mintContainer = document.getElementById("mintContainer");
+  const mintButton = document.getElementById("mintButton");
 
+  let startTime = "";
+  if (publicMintActive) {
+    mainHeading.innerText = h1_public_mint;
+    actionButton.classList.add('hidden');
+    mintButton.innerText = button_public_mint;
+    mintContainer.classList.remove('hidden');
+  } else if (presaleMintActive) {
+    startTime = window.info.runtimeConfig.publicMintStart;
+    subHeading.innerText = h2_presale_mint;
 }
 
 async function Connect(){
@@ -43,7 +59,7 @@ async function Connect(){
         onboarding.stopOnboarding();
     
         window.contract = new web3.eth.Contract(abi, contractAddress);
-
+        loadInfo();
     } else {
         onboardButton.innerText = "Connect MetaMask!";
     
@@ -59,7 +75,7 @@ async function Connect(){
               window.address = accts[0];
               accounts = accts;
               window.contract = new web3.eth.Contract(abi, contractAddress);
-
+              loadInfo();
             });
         };
     };
