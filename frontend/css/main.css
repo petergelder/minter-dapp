@@ -2354,6 +2354,92 @@ input, select, textarea {
 	text-align: center;
   }
 
+/* MINT CONTAINER */
+
+.mint-container {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+  }
+  
+  .info-container {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+	text-align: center;
+	margin-bottom: 2rem;
+  }
+  
+  .mint-qty {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 1rem;
+	background-color: var(--accent-color);
+	border-radius: 5px;
+  }
+  
+  .mint-qty > span {
+	display: flex;
+  }
+  
+  .mint-btn {
+	display: flex;
+	align-items: center;
+	gap: 3rem;
+	margin: auto;
+  }
+  
+  .input-number {
+	height: 100%;
+	padding: 1rem;
+	vertical-align: top;
+	text-align: center;
+	outline: none;
+  }
+  
+  .input-number,
+  .input-number-decrement,
+  .input-number-increment {
+	user-select: none;
+  }
+  
+  .total-price-container {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+	padding: 1rem 0 2rem;
+  }
+  
+  .total-price-container p {
+	color: var(--accent-color);
+  }
+  
+  /* MINTED CONTAINER */
+  
+  .minted-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+  }
+  
+  .minted-container h1 {
+	font-size: 5rem;
+	margin-bottom: 2rem;
+  }
+  
+  .minted-container h2 {
+	font-size: 2rem;
+	margin-bottom: 1rem;
+  }
+  
+  .minted-container p {
+	margin: 1rem 0;
+  }
+
 /* Icon */
 
 	.icon {
