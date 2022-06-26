@@ -2389,6 +2389,7 @@ input, select, textarea {
 	align-items: center;
 	gap: 3rem;
 	margin: auto;
+	text-align: center;
   }
   
   .input-number {
