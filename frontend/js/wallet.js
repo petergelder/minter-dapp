@@ -41,6 +41,7 @@ async function loadInfo() {
     mintContainer.classList.remove('hidden');
   } else if (presaleMintActive) {
     startTime = window.info.runtimeConfig.publicMintStart;
+    mainHeading.innerText = h1_presale_mint;
     subHeading.innerText = h2_presale_mint;
 
     try {
