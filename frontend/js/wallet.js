@@ -61,6 +61,16 @@ async function loadInfo() {
         mainText.innerText = p_presale_mint_already_minted;
       }
   }
+
+  const clockdiv = document.getElementById("countdown");
+  clockdiv.setAttribute("data-date", startTime);
+  countdown();
+
+  // SHOW CARD
+  setTimeout(() => {
+    const countdownCard = document.querySelector('.countdown');
+    countdownCard.classList.add('show-card');
+  }, 1000);
 }
 
 async function Connect(){

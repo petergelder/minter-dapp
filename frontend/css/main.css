@@ -2303,6 +2303,7 @@ input, select, textarea {
   .countdown ul {
 	display: flex;
 	gap: 2rem;
+	padding-left: 0em !important;
   }
   .countdown .clock-item {
 	list-style: none;
